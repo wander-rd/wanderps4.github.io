@@ -114,7 +114,7 @@ footer strong{color:#a9eaff;letter-spacing:.1em}
       <div class="host-eyebrow">HOST INTEGRADO · PS4</div>
       <h2>GOLDHEN HOST</h2>
       <p id="msgs" role="status" aria-live="polite">Preparando tu experiencia gaming…</p>
-      <button id="jbButton" type="button" onclick="showHostInfo()">JAILBREAK</button>
+      <button id="jbButton" type="button" onclick="checkHostFiles()">REVISAR HOST</button>
     </div>
     <div class="host-console" aria-hidden="true">🎮</div>
   </div>
@@ -126,10 +126,57 @@ footer strong{color:#a9eaff;letter-spacing:.1em}
 </section>
 <script>
 
-function showHostInfo() {
+function setHostStatus(message) {
     var m = document.getElementById("msgs");
-    if (m) {
-        m.textContent = "El host se inicia automáticamente al abrir esta página. Si la consola se queda bloqueada, no pulses repetidamente; reinicia la consola antes de volver a intentarlo.";
+    if (m) m.textContent = message;
+}
+
+function checkHostFiles() {
+    var button = document.getElementById("jbButton");
+    if (button) {
+        button.disabled = true;
+        button.textContent = "REVISANDO…";
+    }
+    setHostStatus("Comprobando el archivo del host para este firmware…");
+
+    var ua = navigator.userAgent || "";
+    var match = ua.match(/PlayStation 4[ /]([\\d.]+)/i);
+    var fw = match ? parseFloat(match[1]) : NaN;
+    var path = "";
+
+    if (!match) {
+        setHostStatus("No se detectó el navegador de PS4. Esta comprobación no ejecuta ningún exploit.");
+    } else if (fw >= 13.02 && fw <= 13.52) {
+        path = "./g2all/slopkit/jb.js?v=19";
+    } else {
+        setHostStatus("Firmware detectado: " + match[1] + ". Esta comprobación solo verifica el archivo de entrada; no inicia el jailbreak.");
+    }
+
+    if (!path) {
+        if (button) { button.disabled = false; button.textContent = "REVISAR HOST"; }
+        return;
+    }
+
+    try {
+        var request = new XMLHttpRequest();
+        request.open("GET", path, true);
+        request.onreadystatechange = function () {
+            if (request.readyState !== 4) return;
+            if (request.status >= 200 && request.status < 300) {
+                setHostStatus("Firmware detectado: " + match[1] + ". El archivo de entrada responde correctamente. La comprobación no ejecuta el jailbreak.");
+            } else {
+                setHostStatus("No se pudo cargar el archivo del host (HTTP " + request.status + "). Revisa la publicación y las rutas del repositorio.");
+            }
+            if (button) { button.disabled = false; button.textContent = "REVISAR HOST"; }
+        };
+        request.onerror = function () {
+            setHostStatus("No se pudo comprobar el archivo. Verifica la conexión y vuelve a intentarlo.");
+            if (button) { button.disabled = false; button.textContent = "REVISAR HOST"; }
+        };
+        request.send();
+    } catch (error) {
+        setHostStatus("Este navegador no pudo realizar la comprobación. Reinicia la página e inténtalo de nuevo.");
+        if (button) { button.disabled = false; button.textContent = "REVISAR HOST"; }
     }
 }
 var uaFull = navigator.userAgent;
