@@ -1,46 +1,93 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>WANDER RD | PS4 Host</title>
+<meta name="theme-color" content="#050916">
+<title>WANDER RD | PS4 HOST</title>
 <style>
+:root{color-scheme:dark;--cyan:#58f4ff;--blue:#2478ff;--violet:#9b5cff}
 *{box-sizing:border-box}
-body{
- margin:0;min-height:100vh;background:radial-gradient(ellipse at center,#102d50,#050912 60%,#000);
- color:#fff;font-family:Arial,sans-serif;text-align:center;
- display:flex;align-items:center;justify-content:center;
-}
-main{width:100%;max-width:1000px;padding:25px 16px}
-.logo{font-size:clamp(38px,8vw,76px);font-weight:900;letter-spacing:5px;
- text-shadow:0 0 12px #00aaff,0 0 30px #0077ff}
-.line{width:160px;height:3px;background:#00baff;margin:15px auto 28px;
- box-shadow:0 0 18px #00baff}
-.console{font-size:clamp(90px,20vw,160px);filter:drop-shadow(0 0 20px #008cff)}
-h2{font-size:clamp(18px,4vw,28px);letter-spacing:5px;color:#a4e3ff}
-p{color:#b7c9dc;font-size:14px}
-button{margin-top:25px;padding:17px 42px;width:min(90%,420px);
- background:linear-gradient(100deg,#005bff,#00baff);color:white;
- border:2px solid #60dcff;border-radius:6px;font-size:24px;
- font-weight:bold;letter-spacing:4px;box-shadow:0 0 25px #007bff}
-button:active{transform:scale(.97)}
-footer{margin-top:50px;color:#8295aa;font-size:12px;line-height:1.8}
+html{min-height:100%;background:#050916}
+body{margin:0;min-height:100vh;color:#f4f8ff;font-family:Arial,Helvetica,sans-serif;background:radial-gradient(ellipse at 76% 46%,rgba(23,87,173,.34),transparent 39%),radial-gradient(ellipse at 12% 88%,rgba(106,42,187,.18),transparent 32%),linear-gradient(120deg,#070b18,#09152a 55%,#030611);overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;background-image:linear-gradient(rgba(88,244,255,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(88,244,255,.12) 1px,transparent 1px);background-size:46px 46px;mask-image:linear-gradient(to right,transparent,#000 35%,#000)}
+.shell{min-height:100vh;display:flex;flex-direction:column;max-width:1500px;margin:auto;padding:28px clamp(20px,5vw,76px) 20px;position:relative}
+nav{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-size:clamp(22px,2.3vw,32px);font-weight:900;letter-spacing:.18em;text-shadow:0 0 22px #258bff}
+.pill{font-size:11px;letter-spacing:.18em;color:#a9faff;border:1px solid #2a708b;border-radius:99px;padding:10px 15px;background:#071827aa}
+.hero{flex:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.92fr);align-items:center;gap:clamp(20px,5vw,85px);padding:40px 0}
+.eyebrow{color:var(--cyan);font-size:12px;font-weight:bold;letter-spacing:.28em;text-transform:uppercase}
+h1{font-size:clamp(46px,7.4vw,100px);line-height:.94;letter-spacing:-.055em;margin:18px 0 22px;font-weight:900}
+h1 span{display:block;color:transparent;-webkit-text-stroke:1px #7aefff;text-shadow:0 0 28px #177fff40}
+.lead{font-size:clamp(15px,1.5vw,19px);line-height:1.7;color:#aebed5;max-width:520px;margin:0}
+.actions{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:34px}
+.launch{display:inline-flex;align-items:center;justify-content:center;gap:13px;min-height:64px;padding:0 30px;color:#fff;text-decoration:none;font-size:14px;font-weight:900;letter-spacing:.19em;border:1px solid #8cfaff;border-radius:8px;background:linear-gradient(110deg,#075dff,#087de5 55%,#5b42e8);box-shadow:0 0 0 4px #3d9aff12,0 0 30px #087bff75,inset 0 1px #ffffff70;transition:transform .2s,box-shadow .2s}
+.launch:hover,.launch:focus-visible{transform:translateY(-3px);box-shadow:0 0 0 5px #3d9aff22,0 0 42px #087bffb0;outline:2px solid var(--cyan);outline-offset:4px}
+.launch:active{transform:scale(.98)}
+.launch .arrow{font-size:21px}
+.note{font-size:12px;color:#7f91ad;line-height:1.6}
+.visual{position:relative;display:flex;align-items:center;justify-content:center;min-height:360px}
+.orbit{position:absolute;width:min(37vw,480px);aspect-ratio:1;border:1px solid #3d8cff45;border-radius:50%;box-shadow:0 0 70px #1378ff16,inset 0 0 55px #1378ff12}
+.orbit:before,.orbit:after{content:"";position:absolute;inset:10%;border:1px dashed #5df4ff35;border-radius:50%;transform:rotateX(64deg) rotate(-25deg)}
+.orbit:after{inset:20%;transform:rotateX(70deg) rotate(30deg)}
+.pad{width:min(100%,560px);position:relative;z-index:1;filter:drop-shadow(0 25px 38px #0009) drop-shadow(0 0 26px #087bff65);animation:float 6s ease-in-out infinite}
+.caption{position:absolute;right:0;bottom:12px;color:#6c8bb2;font-size:10px;letter-spacing:.2em}
+footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid #ffffff17;padding-top:18px;color:#7185a4;font-size:11px;line-height:1.7}
+footer strong{color:#a9eaff;letter-spacing:.1em}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-12px) rotate(1deg)}}
+@media(max-width:760px){.shell{padding-top:20px}.hero{grid-template-columns:1fr;gap:5px;padding:48px 0 32px}.copy{text-align:center}.lead{margin:auto}.actions{justify-content:center}.visual{min-height:250px;grid-row:1}.pad{max-width:390px}.orbit{width:min(75vw,360px)}.caption{right:8%;bottom:0}.pill{font-size:9px;padding:8px 10px}footer{justify-content:center;text-align:center}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
-<main>
- <div class="logo">WANDER RD</div>
- <div class="line"></div>
- <div class="console">🎮</div>
- <h2>PLAYSTATION 4</h2>
- <p>Tu espacio gaming</p>
- <button onclick="location.href='./g2all/index.html'">JAILBREAK</button>
- <footer>
-  WANDER RD · PS4 HOST<br>
-  Host original: GamerHack (@GamerHack93)<br>
-  Créditos y agradecimiento a GamerHack y a los desarrolladores originales.
- </footer>
-</main>
+<div class="shell">
+  <nav aria-label="Identidad del sitio">
+    <div class="brand">WANDER <span style="color:#58f4ff">RD</span></div>
+    <div class="pill">PS4 HOST <span aria-hidden="true"> · </span> GAMING SYSTEM</div>
+  </nav>
+  <main class="hero">
+    <section class="copy">
+      <div class="eyebrow">Tu experiencia · Tu consola</div>
+      <h1>ENTRA EN<br><span>OTRO NIVEL.</span></h1>
+      <p class="lead">Un espacio gaming con estilo futurista, diseñado para PlayStation 4. Abre el host y consulta el estado directamente desde tu consola.</p>
+      <div class="actions">
+        <a class="launch" href="./g2all/index.html"><span class="arrow" aria-hidden="true">▶</span> ABRIR HOST PS4</a>
+        <span class="note">Diseño optimizado para pantalla<br>horizontal y mando en mano.</span>
+      </div>
+    </section>
+    <section class="visual" aria-label="Ilustración futurista de un control de videojuegos">
+      <div class="orbit" aria-hidden="true"></div>
+      <svg class="pad" viewBox="0 0 620 390" role="img" aria-label="Control futurista azul y violeta">
+        <defs>
+          <linearGradient id="body" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#344a72"/><stop offset=".45" stop-color="#121e38"/><stop offset="1" stop-color="#080d1b"/></linearGradient>
+          <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7afaff"/><stop offset=".5" stop-color="#2478ff"/><stop offset="1" stop-color="#a15cff"/></linearGradient>
+          <linearGradient id="grip" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#253958"/><stop offset="1" stop-color="#090e1c"/></linearGradient>
+          <filter id="glow"><feGaussianBlur stdDeviation="5"/></filter>
+        </defs>
+        <ellipse cx="310" cy="315" rx="220" ry="24" fill="#087bff" opacity=".18" filter="url(#glow)"/>
+        <path d="M178 99 C142 97 117 119 102 156 L51 279 C39 311 65 333 93 318 L190 270 Q310 304 430 270 L527 318 C555 333 581 311 569 279 L518 156 C503 119 478 97 442 99 Q310 125 178 99Z" fill="url(#body)" stroke="url(#edge)" stroke-width="4"/>
+        <path d="M180 112 Q310 143 440 112" fill="none" stroke="#8afaff" stroke-width="2" opacity=".8"/>
+        <path d="M95 271 L145 158 M525 271 L475 158" stroke="#4e9cff" stroke-width="2" opacity=".35"/>
+        <path d="M155 188 h70 v20 h-25 v25 h-20 v-25 h-25z" fill="#07111f" stroke="#69eaff" stroke-width="2" transform="translate(0 0)"/>
+        <circle cx="395" cy="185" r="14" fill="#091425" stroke="#58f4ff" stroke-width="2"/><circle cx="426" cy="216" r="14" fill="#091425" stroke="#9b5cff" stroke-width="2"/><circle cx="364" cy="216" r="14" fill="#091425" stroke="#398bff" stroke-width="2"/><circle cx="395" cy="247" r="14" fill="#091425" stroke="#58f4ff" stroke-width="2"/>
+        <path d="M390 181 l10 8 M400 181 l-10 8" stroke="#58f4ff" stroke-width="2" opacity=".9"/>
+        <path d="M422 211 l8 10 M430 211 l-8 10" stroke="#c2a0ff" stroke-width="2"/>
+        <circle cx="255" cy="195" r="29" fill="#0b1528" stroke="#476c9c" stroke-width="3"/><circle cx="255" cy="195" r="19" fill="#1b2e4c" stroke="#7cefff" stroke-width="2"/>
+        <circle cx="305" cy="216" r="24" fill="#0b1528" stroke="#476c9c" stroke-width="3"/><circle cx="305" cy="216" r="15" fill="#1b2e4c" stroke="#7cefff" stroke-width="2"/>
+        <rect x="274" y="153" width="72" height="8" rx="4" fill="#07111f" stroke="#4688d8" stroke-width="1.5"/>
+        <rect x="283" y="155" width="54" height="4" rx="2" fill="#58f4ff" opacity=".75"/>
+        <path d="M244 274 Q310 292 376 274" fill="none" stroke="#347aff" stroke-width="3" opacity=".7"/>
+        <path d="M206 121 L220 135 M414 135 L428 121" stroke="#a2faff" stroke-width="3" stroke-linecap="round"/>
+        <text x="310" y="252" text-anchor="middle" font-size="10" letter-spacing="4" fill="#9fefff" font-weight="bold">WANDER RD</text>
+        <path d="M243 89 Q310 68 377 89" fill="none" stroke="#58f4ff" stroke-width="2" opacity=".65"/>
+      </svg>
+      <div class="caption">SYSTEM ONLINE · WANDER RD</div>
+    </section>
+  </main>
+  <footer>
+    <div><strong>WANDER RD</strong> · PS4 HOST</div>
+    <div>Host original: GamerHack (@GamerHack93) · Créditos a los desarrolladores originales.</div>
+  </footer>
+</div>
 </body>
 </html>
