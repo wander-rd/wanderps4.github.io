@@ -8,105 +8,26 @@
 <link rel="stylesheet" href="../style.css">
 
 <style>
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    min-height: 100vh;
-    background: radial-gradient(ellipse at center, #102d50 0%, #050912 58%, #000 100%);
-    color: #fff;
-    font-family: Arial, sans-serif;
-    text-align: center;
-}
-
-header {
-    padding: 30px 12px 10px;
-}
-
-.logo {
-    margin: 0;
-    font-size: clamp(38px, 8vw, 76px);
-    font-weight: 900;
-    letter-spacing: 5px;
-    color: #fff;
-    text-shadow: 0 0 12px #00aaff, 0 0 30px #0077ff;
-}
-
-.subtitle {
-    margin-top: 12px;
-    color: #91dfff;
-    font-size: 15px;
-    letter-spacing: 5px;
-}
-
-.line {
-    width: 150px;
-    height: 3px;
-    margin: 22px auto;
-    background: #00baff;
-    box-shadow: 0 0 18px #00baff;
-}
-
-main {
-    width: 100%;
-    max-width: 950px;
-    margin: auto;
-    padding: 10px 16px 25px;
-}
-
-.console {
-    font-size: clamp(75px, 15vw, 125px);
-    filter: drop-shadow(0 0 20px #008cff);
-    margin: 5px 0;
-}
-
-h2 {
-    color: #b5eaff;
-    letter-spacing: 5px;
-    font-size: clamp(18px, 4vw, 27px);
-}
-
-#msgs {
-    min-height: 65px;
-    margin: 25px 0;
-    color: #8be3ff;
-    font-size: clamp(16px, 3vw, 22px);
-    text-shadow: 0 0 10px #007bff;
-}
-
-#jbButton {
-    display: block;
-    width: min(90%, 420px);
-    margin: 25px auto;
-    padding: 18px 12px;
-    border: 2px solid #60dcff;
-    border-radius: 7px;
-    background: linear-gradient(100deg, #005bff, #00baff);
-    color: #fff;
-    font-size: 25px;
-    font-weight: 900;
-    letter-spacing: 5px;
-    box-shadow: 0 0 25px #007bff;
-    cursor: pointer;
-}
-
-#jbButton:active {
-    transform: scale(.97);
-}
-
-footer {
-    padding: 20px 12px 30px;
-    color: #8295aa;
-    font-size: 12px;
-    line-height: 1.9;
-}
-
-footer a {
-    color: #62cfff;
-    text-decoration: none;
-}
+*{box-sizing:border-box}
+:root{color-scheme:dark;--cyan:#58f4ff}
+body{margin:0;min-height:100vh;color:#f4f8ff;font-family:Arial,Helvetica,sans-serif;background:radial-gradient(ellipse at 78% 40%,#12366a 0,transparent 43%),linear-gradient(120deg,#050916,#0a1428 60%,#030611);display:flex;flex-direction:column}
+header{display:flex;align-items:center;justify-content:space-between;gap:20px;width:100%;max-width:1400px;margin:0 auto;padding:26px clamp(20px,5vw,70px)}
+.logo{margin:0;font-size:clamp(26px,3.8vw,42px);font-weight:900;letter-spacing:.15em;text-shadow:0 0 24px #168dff}
+.subtitle{color:#9befff;font-size:11px;letter-spacing:.2em;border:1px solid #28617d;border-radius:99px;padding:10px 14px;background:#071827aa}
+.line{display:none}
+main{flex:1;width:100%;max-width:1400px;margin:0 auto;padding:20px clamp(20px,5vw,70px) 42px;display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.9fr);align-items:center;gap:40px}
+main:before{content:"PS4 HOST";display:block;grid-column:1;grid-row:1;color:var(--cyan);font-size:12px;font-weight:bold;letter-spacing:.28em;margin-bottom:-35px}
+.console{grid-column:2;grid-row:1 / span 3;display:flex;align-items:center;justify-content:center;font-size:clamp(130px,22vw,250px);filter:drop-shadow(0 0 30px #087bff);min-height:260px;position:relative}
+.console:before{content:"";position:absolute;width:90%;max-width:400px;aspect-ratio:1;border:1px solid #3d8cff55;border-radius:50%;box-shadow:0 0 60px #1378ff18,inset 0 0 45px #1378ff14}
+h2{grid-column:1;grid-row:2;color:#fff;letter-spacing:-.04em;font-size:clamp(40px,6vw,76px);line-height:1;margin:12px 0 8px}
+#msgs{grid-column:1;grid-row:3;min-height:54px;margin:12px 0 18px;color:#91eaff;font-size:clamp(15px,1.7vw,20px);line-height:1.6;text-shadow:0 0 10px #007bff}
+#jbButton{grid-column:1;grid-row:4;display:block;width:min(100%,410px);margin:10px 0;padding:19px 14px;border:1px solid #8cfaff;border-radius:8px;background:linear-gradient(110deg,#075dff,#087de5 55%,#5b42e8);color:#fff;font-size:17px;font-weight:900;letter-spacing:.2em;box-shadow:0 0 0 4px #3d9aff12,0 0 30px #087bff65;cursor:pointer}
+#jbButton:hover,#jbButton:focus-visible{outline:2px solid var(--cyan);outline-offset:4px;box-shadow:0 0 40px #087bff9c}
+#jbButton:active{transform:scale(.99)}
+footer{width:100%;padding:18px clamp(20px,5vw,70px) 24px;border-top:1px solid #ffffff17;color:#7185a4;font-size:11px;line-height:1.9;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer a{color:#62cfff;text-decoration:none}
+@media(max-width:700px){header{align-items:flex-start;flex-direction:column}main{grid-template-columns:1fr;gap:8px;padding-top:18px}.console{grid-column:1;grid-row:1;min-height:180px;font-size:clamp(100px,32vw,180px)}main:before{grid-column:1;grid-row:2;margin:0}h2{grid-column:1;grid-row:3;font-size:clamp(38px,10vw,58px)}#msgs{grid-column:1;grid-row:4}#jbButton{grid-column:1;grid-row:5;margin:8px auto}footer{justify-content:center;text-align:center}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
 </style>
 </head>
 
@@ -123,10 +44,7 @@ footer a {
 
     <h3 id="msgs">Preparando tu experiencia gaming…</h3>
 
-    <button id="jbButton" type="button"
-        onclick="window.location.href='./index.html'">
-        JAILBREAK
-    </button>
+    <button id="jbButton" type="button" onclick="showHostInfo()">ESTADO DEL HOST</button>
 </main>
 
 <footer>
@@ -136,6 +54,12 @@ footer a {
 </footer>
 
 <script>
+function showHostInfo() {
+    var m = document.getElementById("msgs");
+    if (m) {
+        m.textContent = "El host se inicia automáticamente al abrir esta página. Si la consola se queda bloqueada, no pulses repetidamente; reinicia la consola antes de volver a intentarlo.";
+    }
+}
 var uaFull = navigator.userAgent;
 var match = uaFull.match(/PlayStation 4[ /]([\d.]+)/i);
 var isPS4 = match !== null;
