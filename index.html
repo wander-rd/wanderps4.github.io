@@ -1,51 +1,46 @@
+
 <!DOCTYPE html>
-<html><head>
-<title>PS4  Exploit Host by GamerHack</title>
-<link rel="stylesheet" href="style.css">
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WANDER RD | PS4 Host</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;min-height:100vh;background:radial-gradient(ellipse at center,#102d50,#050912 60%,#000);
+ color:#fff;font-family:Arial,sans-serif;text-align:center;
+ display:flex;align-items:center;justify-content:center;
+}
+main{width:100%;max-width:1000px;padding:25px 16px}
+.logo{font-size:clamp(38px,8vw,76px);font-weight:900;letter-spacing:5px;
+ text-shadow:0 0 12px #00aaff,0 0 30px #0077ff}
+.line{width:160px;height:3px;background:#00baff;margin:15px auto 28px;
+ box-shadow:0 0 18px #00baff}
+.console{font-size:clamp(90px,20vw,160px);filter:drop-shadow(0 0 20px #008cff)}
+h2{font-size:clamp(18px,4vw,28px);letter-spacing:5px;color:#a4e3ff}
+p{color:#b7c9dc;font-size:14px}
+button{margin-top:25px;padding:17px 42px;width:min(90%,420px);
+ background:linear-gradient(100deg,#005bff,#00baff);color:white;
+ border:2px solid #60dcff;border-radius:6px;font-size:24px;
+ font-weight:bold;letter-spacing:4px;box-shadow:0 0 25px #007bff}
+button:active{transform:scale(.97)}
+footer{margin-top:50px;color:#8295aa;font-size:12px;line-height:1.8}
+</style>
 </head>
 <body>
-<script>
-var histlength=history.length;history.go(-histlength 2);
-</script>
-<h1 id=msgs>PS4  Exploit Host by GamerHack</h1>
-<hr>
-<br>
-<div id=menu>
-<h1 style="font-size: 18px;color: yellow;">Select Your Firmware</h1>
-<button class="btn btn-multi" onmouseover="msgs.innerHTML='PS4 GoldHEN Host for 5.05 and 7.00 to 13.52 FW - (Auto Exploit Selection)'" onmouseout="msgs.innerHTML='PS4  Exploit Host by GamerHack'" onclick="location.replace('g2all/index.html')"> GoldHEN Multi FW </button>
-<button class="btn" onmouseover="msgs.innerHTML='PS4 5.05 FW Host v2.5'" onmouseout="msgs.innerHTML='PS4  Exploit Host by GamerHack'" onclick="location.replace('505/index.html')"> 5.05 FW v2.5 </button>
-<a href="672goldhen/index.html"><button class="btn" onmouseover="msgs.innerHTML='PS4 6.72 FW GoldHEN Host'" onmouseout="msgs.innerHTML='PS4  Exploit Host by GamerHack'"> 6.72 FW GoldHEN </button></a>
-<a href="672/index.html"><button class="btn" onmouseover="msgs.innerHTML='PS4 6.72 FW Host v3.0'" onmouseout="msgs.innerHTML='PS4  Exploit Host by GamerHack'"> 6.72 FW v3.0 </button></a>
-<br>
-<a href="900goldhen/index.html"><button class="btn" onmouseover="msgs.innerHTML='PS4 9.00 FW GoldHEN Host - (FontFaceSet Webkit)'" onmouseout="msgs.innerHTML='PS4  Exploit Host by GamerHack'"> 9.00 FW GoldHEN </button></a>
-<a href="900v3/index.html"><button class="btn" onmouseover="msgs.innerHTML='PS4 9.00 FW Host v3.0 - (FontFaceSet Webkit)'" onmouseout="msgs.innerHTML='PS4  Exploit Host by GamerHack'"> 9.00 FW v3.0 </button></a>
-<br>
-<button class="btn" onmouseover="msgs.innerHTML='Restore a Host to User&#8217;s Guide without using DNS'" onmouseout="msgs.innerHTML='PS4  Exploit Host by GamerHack'" onclick="location.replace('restore/index.html')"> Restore Host </button>
-<br>
-<button class="btn btn-onln" onmouseover="msgs.innerHTML='If you like my work you can support me with a donation.'" onmouseout="msgs.innerHTML='PS4  Exploit Host by GamerHack'" onclick="donations()" style="margin-top: 137px;margin-bottom: 77px;width: 468px;"> For Donations (Only in Cryptocurrencies) </button>
-<h1 style="margin-top: 78px;">Designed by:<a href="https://twitter.com/GamerHack93" style="color: #f31414;margin-left: 10px;margin-right: 10px;">@GamerHack93</a>A special thanks to all the devs on the scene.</h1>
-</div>
-<div id=crypto>
-<h1 style="font-size: 18px;color: yellow;">Donate with Bitcoin (BTC):</h1>
-<img src="btc.jpg" width="150" height="150">
-<br>
-<h1 style="font-size: 18px;">bc1q6cnsykmvem6zgw8wag3ygee0jkhtxj6rkp2nrm</h1>
-<br>
-<h1 style="font-size: 18px;color: yellow;">Donate with Ethereum (ETH):</h1>
-<img src="eth.jpg" width="150" height="150">
-<h1 style="font-size: 18px;">0x7Ae1825ddE196925dB8B7832F436cA0eAeaF932c</h1>
-<button class="btn" onclick="load_menu()"> Return </button>
-</div>
-<script>
-function donations(){
-document.getElementById("crypto").style.display = "block";
-document.getElementById("menu").style.display = "none";
-}
-
-function load_menu(){
-document.getElementById("menu").style.display = "block";
-document.getElementById("crypto").style.display = "none";
-}
-</script>
+<main>
+ <div class="logo">WANDER RD</div>
+ <div class="line"></div>
+ <div class="console">🎮</div>
+ <h2>PLAYSTATION 4</h2>
+ <p>Tu espacio gaming</p>
+ <button onclick="location.href='./g2all/index.html'">JAILBREAK</button>
+ <footer>
+  WANDER RD · PS4 HOST<br>
+  Host original: GamerHack (@GamerHack93)<br>
+  Créditos y agradecimiento a GamerHack y a los desarrolladores originales.
+ </footer>
+</main>
 </body>
 </html>
