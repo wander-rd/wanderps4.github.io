@@ -37,6 +37,25 @@ footer strong{color:#a9eaff;letter-spacing:.1em}
 @keyframes float{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-12px) rotate(1deg)}}
 @media(max-width:760px){.shell{padding-top:20px}.hero{grid-template-columns:1fr;gap:5px;padding:48px 0 32px}.copy{text-align:center}.lead{margin:auto}.actions{justify-content:center}.visual{min-height:250px;grid-row:1}.pad{max-width:390px}.orbit{width:min(75vw,360px)}.caption{right:8%;bottom:0}.pill{font-size:9px;padding:8px 10px}footer{justify-content:center;text-align:center}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+
+/* Integrated PS4 host section */
+#ps4-host{width:100%;max-width:1400px;margin:0 auto 36px;padding:34px clamp(20px,5vw,70px);border:1px solid #ffffff18;border-radius:18px;background:linear-gradient(130deg,#071225ee,#0a1b34e8);box-shadow:0 0 45px #087bff18}
+#ps4-host .host-header{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-bottom:22px}
+#ps4-host .host-title{margin:0;color:#58a6ff;font-size:clamp(24px,3.8vw,38px);font-weight:900;letter-spacing:.14em;text-shadow:0 0 24px #168dff}
+#ps4-host .host-subtitle{color:#9befff;font-size:11px;letter-spacing:.2em;border:1px solid #28617d;border-radius:99px;padding:10px 14px;background:#071827aa}
+#ps4-host .host-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(180px,.75fr);align-items:center;gap:24px}
+#ps4-host .host-eyebrow{color:#58f4ff;font-size:12px;font-weight:bold;letter-spacing:.28em}
+#ps4-host h2{margin:12px 0;color:#fff;letter-spacing:-.04em;font-size:clamp(36px,5vw,66px);line-height:1}
+#ps4-host #msgs{min-height:54px;margin:12px 0 18px;color:#91eaff;font-size:clamp(15px,1.7vw,20px);line-height:1.6;text-shadow:0 0 10px #007bff}
+#ps4-host #jbButton{display:block;width:min(100%,410px);margin:10px 0;padding:19px 14px;border:1px solid #8cfaff;border-radius:8px;background:linear-gradient(110deg,#075dff,#087de5 55%,#5b42e8);color:#fff;font-family:inherit;font-size:17px;font-weight:900;letter-spacing:.2em;box-shadow:0 0 0 4px #3d9aff12,0 0 30px #087bff65;cursor:pointer}
+#ps4-host #jbButton:hover,#ps4-host #jbButton:focus-visible{outline:2px solid #58f4ff;outline-offset:4px;box-shadow:0 0 40px #087bff9c}
+#ps4-host .host-console{display:flex;align-items:center;justify-content:center;position:relative;min-height:220px;font-size:clamp(100px,17vw,190px);filter:drop-shadow(0 0 30px #087bff)}
+#ps4-host .host-console:before{content:"";position:absolute;width:90%;max-width:300px;aspect-ratio:1;border:1px solid #3d8cff55;border-radius:50%;box-shadow:0 0 60px #1378ff18,inset 0 0 45px #1378ff14}
+#ps4-host .host-foot{margin-top:24px;padding-top:16px;border-top:1px solid #ffffff17;color:#7185a4;font-size:11px;line-height:1.9;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+#ps4-host .host-foot a{color:#62cfff;text-decoration:none}
+#ps4-host .chatgpt-credit{color:#72f0a5;text-shadow:0 0 12px #36d87830}
+@media(max-width:700px){#ps4-host .host-header{align-items:flex-start;flex-direction:column}#ps4-host .host-grid{grid-template-columns:1fr;gap:8px}#ps4-host .host-console{grid-row:1;min-height:150px;font-size:clamp(90px,30vw,150px)}#ps4-host #jbButton{margin:8px auto}#ps4-host .host-foot{justify-content:center;text-align:center}}
+
 </style>
 </head>
 <body>
@@ -51,8 +70,8 @@ footer strong{color:#a9eaff;letter-spacing:.1em}
       <h1>ENTRA EN<br><span>OTRO NIVEL.</span></h1>
       <p class="lead">Un espacio gaming con estilo futurista, diseñado para PlayStation 4. Abre el host y consulta el estado directamente desde tu consola.</p>
       <div class="actions">
-        <a class="launch" href="./g2all/index.html"><span class="arrow" aria-hidden="true">▶</span> JAILBREAK PS4</a>
-        <span class="note">Diseño optimizado para pantalla<br>horizontal y mando en mano.</span>
+        <button class="launch" type="button" onclick='document.getElementById("ps4-host").scrollIntoView({behavior:"smooth"})'><span class="arrow" aria-hidden="true">▶</span> IR AL HOST PS4</button>
+        <span class="note">El host está integrado en esta misma página.<br>Sin saltar a otra página.</span>
       </div>
     </section>
     <section class="visual" aria-label="Ilustración futurista de un control de videojuegos">
@@ -84,7 +103,106 @@ footer strong{color:#a9eaff;letter-spacing:.1em}
       <div class="caption">SYSTEM ONLINE · WANDER RD</div>
     </section>
   </main>
-  <footer>
+  
+<section id="ps4-host" aria-label="Host integrado de PlayStation 4">
+  <div class="host-header">
+    <h2 class="host-title">WANDER RD</h2>
+    <div class="host-subtitle">PLAYSTATION 4 · HOST</div>
+  </div>
+  <div class="host-grid">
+    <div>
+      <div class="host-eyebrow">HOST INTEGRADO · PS4</div>
+      <h2>GOLDHEN HOST</h2>
+      <p id="msgs" role="status" aria-live="polite">Preparando tu experiencia gaming…</p>
+      <button id="jbButton" type="button" onclick="showHostInfo()">JAILBREAK</button>
+    </div>
+    <div class="host-console" aria-hidden="true">🎮</div>
+  </div>
+  <div class="host-foot">
+    <div><strong style="color:#58a6ff">WANDER RD</strong> · PS4 HOST · <span style="color:#58a6ff;letter-spacing:.12em">VERSIÓN 1.00</span></div>
+    <div>Host original: <a href="https://github.com/GamerHack/GamerHack.github.io" target="_blank" rel="noopener noreferrer">GamerHack</a> · Créditos a los desarrolladores originales.</div>
+    <div class="chatgpt-credit">Diseño y desarrollo en colaboración con ChatGPT</div>
+  </div>
+</section>
+<script>
+
+function showHostInfo() {
+    var m = document.getElementById("msgs");
+    if (m) {
+        m.textContent = "El host se inicia automáticamente al abrir esta página. Si la consola se queda bloqueada, no pulses repetidamente; reinicia la consola antes de volver a intentarlo.";
+    }
+}
+var uaFull = navigator.userAgent;
+var match = uaFull.match(/PlayStation 4[ /]([\d.]+)/i);
+var isPS4 = match !== null;
+var fwVersion = isPS4 ? match[1] : "Unknown";
+var fwNum = parseFloat(fwVersion);
+var msgs = document.getElementById("msgs");
+
+function onScriptError() {
+    msgs.textContent =
+        "No se encontró el contenido. Comprueba los archivos del host.";
+}
+
+if (!isPS4) {
+    msgs.textContent =
+        "Este host está diseñado para PS4 con firmware compatible.";
+} else {
+    msgs.textContent = "Firmware detectado: " + fwVersion;
+
+    
+        if (fwNum == 5.05 || fwNum == 5.07) {
+            var script = document.createElement("script");
+            script.src = "./g2all/505/exploit.js";
+            script.onerror = onScriptError;
+            document.head.appendChild(script);
+        } else if (fwNum >= 7.00 && fwNum <= 8.52) {
+            var script = document.createElement("script");
+            script.type = "module";
+            script.src = "./g2all/700/alert.js";
+            script.onerror = onScriptError;
+            document.head.appendChild(script);
+        } else if (fwNum >= 9.00 && fwNum <= 9.60) {
+            var script = document.createElement("script");
+            script.type = "module";
+            script.src = "./g2all/900/alert.js";
+            script.onerror = onScriptError;
+            document.head.appendChild(script);
+        } else if (fwNum >= 10.00 && fwNum <= 11.02) {
+            var script = document.createElement("script");
+            script.src = "./g2all/css/main.js";
+            script.onerror = onScriptError;
+            script.onload = function () {
+                setTimeout(function () {
+                    doJb();
+                }, 500);
+            };
+            document.head.appendChild(script);
+        } else if (fwNum >= 11.50 && fwNum <= 12.02) {
+            var script = document.createElement("script");
+            script.type = "module";
+            script.src = "./g2all/slopkit/chain_lapse.js";
+            script.onerror = onScriptError;
+            document.head.appendChild(script);
+        } else if (fwNum >= 12.50 && fwNum <= 13.00) {
+            var script = document.createElement("script");
+            script.type = "module";
+            script.src = "./g2all/slopkit/chain_poops.js";
+            script.onerror = onScriptError;
+            document.head.appendChild(script);
+        } else if (fwNum >= 13.02 && fwNum <= 13.52) {
+            var script = document.createElement("script");
+            script.type = "module";
+            script.src = "./g2all/slopkit/jb.js?v=19";
+            script.onerror = onScriptError;
+            document.head.appendChild(script);
+        } else {
+            msgs.textContent = "Firmware no compatible: " + fwVersion;
+        }
+    
+</script>
+
+<footer>
     <div><strong style="color:#58a6ff">WANDER RD</strong> · PS4 HOST · <span style="color:#58a6ff">VERSIÓN 1.00</span></div>
     <div>Host original: GamerHack (@GamerHack93) · Créditos a los desarrolladores originales.<br><span style="color:#72f0a5">Diseño y desarrollo en colaboración con ChatGPT</span></div>
   </footer>
