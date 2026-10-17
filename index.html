@@ -3,256 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#050916">
-<title>WANDER RD | PS4 HOST</title>
-<style>
-:root{color-scheme:dark;--cyan:#58f4ff;--blue:#2478ff;--violet:#9b5cff}
-*{box-sizing:border-box}
-html{min-height:100%;background:#050916}
-body{margin:0;min-height:100vh;color:#f4f8ff;font-family:Arial,Helvetica,sans-serif;background:radial-gradient(ellipse at 76% 46%,rgba(23,87,173,.34),transparent 39%),radial-gradient(ellipse at 12% 88%,rgba(106,42,187,.18),transparent 32%),linear-gradient(120deg,#070b18,#09152a 55%,#030611);overflow-x:hidden}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;background-image:linear-gradient(rgba(88,244,255,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(88,244,255,.12) 1px,transparent 1px);background-size:46px 46px;mask-image:linear-gradient(to right,transparent,#000 35%,#000)}
-.shell{min-height:100vh;display:flex;flex-direction:column;max-width:1500px;margin:auto;padding:28px clamp(20px,5vw,76px) 20px;position:relative}
-nav{display:flex;align-items:center;justify-content:space-between;gap:20px}
-.brand{font-size:clamp(22px,2.3vw,32px);font-weight:900;letter-spacing:.18em;text-shadow:0 0 22px #258bff}
-.pill{font-size:11px;letter-spacing:.18em;color:#a9faff;border:1px solid #2a708b;border-radius:99px;padding:10px 15px;background:#071827aa}
-.hero{flex:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.92fr);align-items:center;gap:clamp(20px,5vw,85px);padding:40px 0}
-.eyebrow{color:var(--cyan);font-size:12px;font-weight:bold;letter-spacing:.28em;text-transform:uppercase}
-h1{font-size:clamp(46px,7.4vw,100px);line-height:.94;letter-spacing:-.055em;margin:18px 0 22px;font-weight:900}
-h1 span{display:block;color:transparent;-webkit-text-stroke:1px #7aefff;text-shadow:0 0 28px #177fff40}
-.lead{font-size:clamp(15px,1.5vw,19px);line-height:1.7;color:#aebed5;max-width:520px;margin:0}
-.actions{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:34px}
-.launch{display:inline-flex;align-items:center;justify-content:center;gap:13px;min-height:64px;padding:0 30px;color:#fff;text-decoration:none;font-size:14px;font-weight:900;letter-spacing:.19em;border:1px solid #8cfaff;border-radius:8px;background:linear-gradient(110deg,#075dff,#087de5 55%,#5b42e8);box-shadow:0 0 0 4px #3d9aff12,0 0 30px #087bff75,inset 0 1px #ffffff70;transition:transform .2s,box-shadow .2s}
-.launch:hover,.launch:focus-visible{transform:translateY(-3px);box-shadow:0 0 0 5px #3d9aff22,0 0 42px #087bffb0;outline:2px solid var(--cyan);outline-offset:4px}
-.launch:active{transform:scale(.98)}
-.launch .arrow{font-size:21px}
-.note{font-size:12px;color:#7f91ad;line-height:1.6}
-.visual{position:relative;display:flex;align-items:center;justify-content:center;min-height:360px}
-.orbit{position:absolute;width:min(37vw,480px);aspect-ratio:1;border:1px solid #3d8cff45;border-radius:50%;box-shadow:0 0 70px #1378ff16,inset 0 0 55px #1378ff12}
-.orbit:before,.orbit:after{content:"";position:absolute;inset:10%;border:1px dashed #5df4ff35;border-radius:50%;transform:rotateX(64deg) rotate(-25deg)}
-.orbit:after{inset:20%;transform:rotateX(70deg) rotate(30deg)}
-.pad{width:min(100%,560px);position:relative;z-index:1;filter:drop-shadow(0 25px 38px #0009) drop-shadow(0 0 26px #087bff65)}
-.caption{position:absolute;right:0;bottom:12px;color:#6c8bb2;font-size:10px;letter-spacing:.2em}
-footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid #ffffff17;padding-top:18px;color:#7185a4;font-size:11px;line-height:1.7}
-footer strong{color:#a9eaff;letter-spacing:.1em}
-@keyframes float{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-12px) rotate(1deg)}}
-@media(max-width:760px){.shell{padding-top:20px}.hero{grid-template-columns:1fr;gap:5px;padding:48px 0 32px}.copy{text-align:center}.lead{margin:auto}.actions{justify-content:center}.visual{min-height:250px;grid-row:1}.pad{max-width:390px}.orbit{width:min(75vw,360px)}.caption{right:8%;bottom:0}.pill{font-size:9px;padding:8px 10px}footer{justify-content:center;text-align:center}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
-
-/* Integrated PS4 host section */
-#ps4-host{width:100%;max-width:1400px;margin:0 auto 36px;padding:34px clamp(20px,5vw,70px);border:1px solid #ffffff18;border-radius:18px;background:linear-gradient(130deg,#071225ee,#0a1b34e8);box-shadow:0 0 45px #087bff18}
-#ps4-host .host-header{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-bottom:22px}
-#ps4-host .host-title{margin:0;color:#58a6ff;font-size:clamp(24px,3.8vw,38px);font-weight:900;letter-spacing:.14em;text-shadow:0 0 24px #168dff}
-#ps4-host .host-subtitle{color:#9befff;font-size:11px;letter-spacing:.2em;border:1px solid #28617d;border-radius:99px;padding:10px 14px;background:#071827aa}
-#ps4-host .host-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(180px,.75fr);align-items:center;gap:24px}
-#ps4-host .host-eyebrow{color:#58f4ff;font-size:12px;font-weight:bold;letter-spacing:.28em}
-#ps4-host h2{margin:12px 0;color:#fff;letter-spacing:-.04em;font-size:clamp(36px,5vw,66px);line-height:1}
-#ps4-host #msgs{min-height:54px;margin:12px 0 18px;color:#91eaff;font-size:clamp(15px,1.7vw,20px);line-height:1.6;text-shadow:0 0 10px #007bff}
-#ps4-host #jbButton{display:block;width:min(100%,410px);margin:10px 0;padding:19px 14px;border:1px solid #8cfaff;border-radius:8px;background:linear-gradient(110deg,#075dff,#087de5 55%,#5b42e8);color:#fff;font-family:inherit;font-size:17px;font-weight:900;letter-spacing:.2em;box-shadow:0 0 0 4px #3d9aff12,0 0 30px #087bff65;cursor:pointer}
-#ps4-host #jbButton:hover,#ps4-host #jbButton:focus-visible{outline:2px solid #58f4ff;outline-offset:4px;box-shadow:0 0 40px #087bff9c}
-#ps4-host .host-console{display:flex;align-items:center;justify-content:center;position:relative;min-height:220px;font-size:clamp(100px,17vw,190px);filter:drop-shadow(0 0 30px #087bff)}
-#ps4-host .host-console:before{content:"";position:absolute;width:90%;max-width:300px;aspect-ratio:1;border:1px solid #3d8cff55;border-radius:50%;box-shadow:0 0 60px #1378ff18,inset 0 0 45px #1378ff14}
-#ps4-host .host-foot{margin-top:24px;padding-top:16px;border-top:1px solid #ffffff17;color:#7185a4;font-size:11px;line-height:1.9;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-#ps4-host .host-foot a{color:#62cfff;text-decoration:none}
-#ps4-host .chatgpt-credit{color:#72f0a5;text-shadow:0 0 12px #36d87830}
-@media(max-width:700px){#ps4-host .host-header{align-items:flex-start;flex-direction:column}#ps4-host .host-grid{grid-template-columns:1fr;gap:8px}#ps4-host .host-console{grid-row:1;min-height:150px;font-size:clamp(90px,30vw,150px)}#ps4-host #jbButton{margin:8px auto}#ps4-host .host-foot{justify-content:center;text-align:center}}
-
-</style>
+<title>WANDER RD | Exploit Host</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="shell">
-  <nav aria-label="Identidad del sitio">
-    <div class="brand" style="color:#58a6ff">WANDER <span style="color:#58a6ff">RD</span></div>
-    <div class="pill">PS4 HOST <span aria-hidden="true"> · </span> GAMING SYSTEM</div>
-  </nav>
-  <main class="hero">
-    <section class="copy">
-      <div class="eyebrow">Tu experiencia · Tu consola</div>
-      <h1>ENTRA EN<br><span>OTRO NIVEL.</span></h1>
-      <p class="lead">Un espacio gaming con estilo futurista, diseñado para PlayStation 4. Abre el host y consulta el estado directamente desde tu consola.</p>
-      <div class="actions">
-        <button class="launch" type="button" onclick='document.getElementById("ps4-host").scrollIntoView({behavior:"auto"})'><span class="arrow" aria-hidden="true">▶</span> IR AL HOST PS4</button>
-        <span class="note">El host está integrado en esta misma página.<br>Sin saltar a otra página.</span>
-      </div>
-    </section>
-    <section class="visual" aria-label="Ilustración futurista de un control de videojuegos">
-      <div class="orbit" aria-hidden="true"></div>
-      <svg class="pad" viewBox="0 0 620 390" role="img" aria-label="Control futurista azul y violeta">
-        <defs>
-          <linearGradient id="body" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#344a72"/><stop offset=".45" stop-color="#121e38"/><stop offset="1" stop-color="#080d1b"/></linearGradient>
-          <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7afaff"/><stop offset=".5" stop-color="#2478ff"/><stop offset="1" stop-color="#a15cff"/></linearGradient>
-          <linearGradient id="grip" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#253958"/><stop offset="1" stop-color="#090e1c"/></linearGradient>
-          <filter id="glow"><feGaussianBlur stdDeviation="5"/></filter>
-        </defs>
-        <ellipse cx="310" cy="315" rx="220" ry="24" fill="#087bff" opacity=".18" filter="url(#glow)"/>
-        <path d="M178 99 C142 97 117 119 102 156 L51 279 C39 311 65 333 93 318 L190 270 Q310 304 430 270 L527 318 C555 333 581 311 569 279 L518 156 C503 119 478 97 442 99 Q310 125 178 99Z" fill="url(#body)" stroke="url(#edge)" stroke-width="4"/>
-        <path d="M180 112 Q310 143 440 112" fill="none" stroke="#8afaff" stroke-width="2" opacity=".8"/>
-        <path d="M95 271 L145 158 M525 271 L475 158" stroke="#4e9cff" stroke-width="2" opacity=".35"/>
-        <path d="M155 188 h70 v20 h-25 v25 h-20 v-25 h-25z" fill="#07111f" stroke="#69eaff" stroke-width="2" transform="translate(0 0)"/>
-        <circle cx="395" cy="185" r="14" fill="#091425" stroke="#58f4ff" stroke-width="2"/><circle cx="426" cy="216" r="14" fill="#091425" stroke="#9b5cff" stroke-width="2"/><circle cx="364" cy="216" r="14" fill="#091425" stroke="#398bff" stroke-width="2"/><circle cx="395" cy="247" r="14" fill="#091425" stroke="#58f4ff" stroke-width="2"/>
-        <path d="M390 181 l10 8 M400 181 l-10 8" stroke="#58f4ff" stroke-width="2" opacity=".9"/>
-        <path d="M422 211 l8 10 M430 211 l-8 10" stroke="#c2a0ff" stroke-width="2"/>
-        <circle cx="255" cy="195" r="29" fill="#0b1528" stroke="#476c9c" stroke-width="3"/><circle cx="255" cy="195" r="19" fill="#1b2e4c" stroke="#7cefff" stroke-width="2"/>
-        <circle cx="305" cy="216" r="24" fill="#0b1528" stroke="#476c9c" stroke-width="3"/><circle cx="305" cy="216" r="15" fill="#1b2e4c" stroke="#7cefff" stroke-width="2"/>
-        <rect x="274" y="153" width="72" height="8" rx="4" fill="#07111f" stroke="#4688d8" stroke-width="1.5"/>
-        <rect x="283" y="155" width="54" height="4" rx="2" fill="#58f4ff" opacity=".75"/>
-        <path d="M244 274 Q310 292 376 274" fill="none" stroke="#347aff" stroke-width="3" opacity=".7"/>
-        <path d="M206 121 L220 135 M414 135 L428 121" stroke="#a2faff" stroke-width="3" stroke-linecap="round"/>
-        <text x="310" y="252" text-anchor="middle" font-size="10" letter-spacing="4" fill="#9fefff" font-weight="bold">WANDER RD</text>
-        <path d="M243 89 Q310 68 377 89" fill="none" stroke="#58f4ff" stroke-width="2" opacity=".65"/>
-      </svg>
-      <div class="caption">SYSTEM ONLINE · WANDER RD</div>
-    </section>
-  </main>
-  
-<section id="ps4-host" aria-label="Host integrado de PlayStation 4">
-  <div class="host-header">
-    <h2 class="host-title">WANDER RD</h2>
-    <div class="host-subtitle">PLAYSTATION 4 · HOST</div>
-  </div>
-  <div class="host-grid">
-    <div>
-      <div class="host-eyebrow">HOST INTEGRADO · PS4</div>
-      <h2>GOLDHEN HOST</h2>
-      <p id="msgs" role="status" aria-live="polite">Preparando tu experiencia gaming…</p>
-      <button id="jbButton" type="button" onclick="checkHostFiles()">GOLDHEN · COMPROBAR HOST</button>
-    </div>
-    <div class="host-console" aria-hidden="true">🎮</div>
-  </div>
-  <div class="host-foot">
-    <div><strong style="color:#58a6ff">WANDER RD</strong> · PS4 HOST · <span style="color:#58a6ff;letter-spacing:.12em">VERSIÓN 1.00</span></div>
-    <div>Host original: <a href="https://github.com/GamerHack/GamerHack.github.io" target="_blank" rel="noopener noreferrer">GamerHack</a> · Créditos a los desarrolladores originales.</div>
-    <div class="chatgpt-credit">Diseño y desarrollo en colaboración con ChatGPT</div>
-  </div>
-</section>
-<script>
-
-function setHostStatus(message) {
-    var m = document.getElementById("msgs");
-    if (m) m.textContent = message;
-}
-
-function checkHostFiles() {
-    var button = document.getElementById("jbButton");
-    if (button) {
-        button.disabled = true;
-        button.textContent = "REVISANDO…";
-    }
-    setHostStatus("Comprobando el archivo del host para este firmware…");
-
-    var ua = navigator.userAgent || "";
-    var match = ua.match(/PlayStation 4[ /]([\\d.]+)/i);
-    var fw = match ? parseFloat(match[1]) : NaN;
-    var path = "";
-
-    if (!match) {
-        setHostStatus("No se detectó el navegador de PS4. Esta comprobación no ejecuta ningún exploit.");
-    } else if (fw >= 13.02 && fw <= 13.52) {
-        path = "./g2all/slopkit/jb.js?v=19";
-    } else {
-        setHostStatus("Firmware detectado: " + match[1] + ". Esta comprobación solo verifica el archivo de entrada; no inicia el jailbreak.");
-    }
-
-    if (!path) {
-        if (button) { button.disabled = false; button.textContent = "GOLDHEN · COMPROBAR HOST"; }
-        return;
-    }
-
-    try {
-        var request = new XMLHttpRequest();
-        request.open("GET", path, true);
-        request.onreadystatechange = function () {
-            if (request.readyState !== 4) return;
-            if (request.status >= 200 && request.status < 300) {
-                setHostStatus("Firmware detectado: " + match[1] + ". El archivo de entrada responde correctamente. La comprobación no ejecuta el jailbreak.");
-            } else {
-                setHostStatus("No se pudo cargar el archivo del host (HTTP " + request.status + "). Revisa la publicación y las rutas del repositorio.");
-            }
-            if (button) { button.disabled = false; button.textContent = "REVISAR HOST"; }
-        };
-        request.onerror = function () {
-            setHostStatus("No se pudo comprobar el archivo. Verifica la conexión y vuelve a intentarlo.");
-            if (button) { button.disabled = false; button.textContent = "REVISAR HOST"; }
-        };
-        request.send();
-    } catch (error) {
-        setHostStatus("Este navegador no pudo realizar la comprobación. Reinicia la página e inténtalo de nuevo.");
-        if (button) { button.disabled = false; button.textContent = "REVISAR HOST"; }
-    }
-}
-var uaFull = navigator.userAgent;
-var match = uaFull.match(/PlayStation 4[ /]([\d.]+)/i);
-var isPS4 = match !== null;
-var fwVersion = isPS4 ? match[1] : "Unknown";
-var fwNum = parseFloat(fwVersion);
-var msgs = document.getElementById("msgs");
-
-function onScriptError() {
-    msgs.textContent =
-        "No se encontró el contenido. Comprueba los archivos del host.";
-}
-
-if (!isPS4) {
-    msgs.textContent =
-        "Este host está diseñado para PS4 con firmware compatible.";
-} else {
-    msgs.textContent = "Firmware detectado: " + fwVersion;
-
-    
-        if (fwNum == 5.05 || fwNum == 5.07) {
-            var script = document.createElement("script");
-            script.src = "./g2all/505/exploit.js";
-            script.onerror = onScriptError;
-            document.head.appendChild(script);
-        } else if (fwNum >= 7.00 && fwNum <= 8.52) {
-            var script = document.createElement("script");
-            script.type = "module";
-            script.src = "./g2all/700/alert.js";
-            script.onerror = onScriptError;
-            document.head.appendChild(script);
-        } else if (fwNum >= 9.00 && fwNum <= 9.60) {
-            var script = document.createElement("script");
-            script.type = "module";
-            script.src = "./g2all/900/alert.js";
-            script.onerror = onScriptError;
-            document.head.appendChild(script);
-        } else if (fwNum >= 10.00 && fwNum <= 11.02) {
-            var script = document.createElement("script");
-            script.src = "./g2all/css/main.js";
-            script.onerror = onScriptError;
-            script.onload = function () {
-                setTimeout(function () {
-                    doJb();
-                }, 500);
-            };
-            document.head.appendChild(script);
-        } else if (fwNum >= 11.50 && fwNum <= 12.02) {
-            var script = document.createElement("script");
-            script.type = "module";
-            script.src = "./g2all/slopkit/chain_lapse.js";
-            script.onerror = onScriptError;
-            document.head.appendChild(script);
-        } else if (fwNum >= 12.50 && fwNum <= 13.00) {
-            var script = document.createElement("script");
-            script.type = "module";
-            script.src = "./g2all/slopkit/chain_poops.js";
-            script.onerror = onScriptError;
-            document.head.appendChild(script);
-        } else if (fwNum >= 13.02 && fwNum <= 13.52) {
-            var script = document.createElement("script");
-            script.type = "module";
-            script.src = "./g2all/slopkit/jb.js?v=19";
-            script.onerror = onScriptError;
-            document.head.appendChild(script);
-        } else {
-            msgs.textContent = "Firmware no compatible: " + fwVersion;
-        }
-}
-</script>
-
-<footer>
-    <div><strong style="color:#58a6ff">WANDER RD</strong> · PS4 HOST · <span style="color:#58a6ff">VERSIÓN 1.00</span></div>
-    <div>Host original: GamerHack (@GamerHack93) · Créditos a los desarrolladores originales.<br><span style="color:#72f0a5">Diseño y desarrollo en colaboración con ChatGPT</span></div>
-  </footer>
+<h1 id="msgs">WANDER RD | Exploit Host</h1>
+<hr>
+<br>
+<div id="menu">
+<h1 style="font-size:18px;color:yellow;">Select Your Firmware</h1>
+<button class="btn btn-multi" onmouseover="msgs.innerHTML='PS4 GoldHEN Host for 5.05 and 7.00 to 13.52 FW - Auto Exploit Selection'" onmouseout="msgs.innerHTML='WANDER RD | Exploit Host'" onclick="location.href='g2all/index.html'">GoldHEN Multi FW</button>
+<button class="btn" onmouseover="msgs.innerHTML='PS4 5.05 FW Host v2.5'" onmouseout="msgs.innerHTML='WANDER RD | Exploit Host'" onclick="location.href='505/index.html'">5.05 FW v2.5</button>
+<a href="672goldhen/index.html"><button class="btn" onmouseover="msgs.innerHTML='PS4 6.72 FW GoldHEN Host'" onmouseout="msgs.innerHTML='WANDER RD | Exploit Host'">6.72 FW GoldHEN</button></a>
+<a href="672/index.html"><button class="btn" onmouseover="msgs.innerHTML='PS4 6.72 FW Host v3.0'" onmouseout="msgs.innerHTML='WANDER RD | Exploit Host'">6.72 FW v3.0</button></a>
+<br>
+<a href="900goldhen/index.html"><button class="btn" onmouseover="msgs.innerHTML='PS4 9.00 FW GoldHEN Host'" onmouseout="msgs.innerHTML='WANDER RD | Exploit Host'">9.00 FW GoldHEN</button></a>
+<a href="900v3/index.html"><button class="btn" onmouseover="msgs.innerHTML='PS4 9.00 FW Host v3.0'" onmouseout="msgs.innerHTML='WANDER RD | Exploit Host'">9.00 FW v3.0</button></a>
+<br>
+<button class="btn" onmouseover="msgs.innerHTML='Restore Host'" onmouseout="msgs.innerHTML='WANDER RD | Exploit Host'" onclick="location.href='restore/index.html'">Restore Host</button>
+<h1 style="margin-top:78px;">WANDER RD <span style="margin-left:10px;margin-right:10px;">|</span> Special thanks to GamerHack and all the developers.</h1>
 </div>
+<script>
+const msgs = document.getElementById("msgs");
+</script>
 </body>
 </html>
