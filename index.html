@@ -30,7 +30,7 @@ h1 span{display:block;color:transparent;-webkit-text-stroke:1px #7aefff;text-sha
 .orbit{position:absolute;width:min(37vw,480px);aspect-ratio:1;border:1px solid #3d8cff45;border-radius:50%;box-shadow:0 0 70px #1378ff16,inset 0 0 55px #1378ff12}
 .orbit:before,.orbit:after{content:"";position:absolute;inset:10%;border:1px dashed #5df4ff35;border-radius:50%;transform:rotateX(64deg) rotate(-25deg)}
 .orbit:after{inset:20%;transform:rotateX(70deg) rotate(30deg)}
-.pad{width:min(100%,560px);position:relative;z-index:1;filter:drop-shadow(0 25px 38px #0009) drop-shadow(0 0 26px #087bff65);animation:float 6s ease-in-out infinite}
+.pad{width:min(100%,560px);position:relative;z-index:1;filter:drop-shadow(0 25px 38px #0009) drop-shadow(0 0 26px #087bff65)}
 .caption{position:absolute;right:0;bottom:12px;color:#6c8bb2;font-size:10px;letter-spacing:.2em}
 footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid #ffffff17;padding-top:18px;color:#7185a4;font-size:11px;line-height:1.7}
 footer strong{color:#a9eaff;letter-spacing:.1em}
@@ -70,7 +70,7 @@ footer strong{color:#a9eaff;letter-spacing:.1em}
       <h1>ENTRA EN<br><span>OTRO NIVEL.</span></h1>
       <p class="lead">Un espacio gaming con estilo futurista, diseñado para PlayStation 4. Abre el host y consulta el estado directamente desde tu consola.</p>
       <div class="actions">
-        <button class="launch" type="button" onclick='document.getElementById("ps4-host").scrollIntoView({behavior:"smooth"})'><span class="arrow" aria-hidden="true">▶</span> IR AL HOST PS4</button>
+        <button class="launch" type="button" onclick='document.getElementById("ps4-host").scrollIntoView({behavior:"auto"})'><span class="arrow" aria-hidden="true">▶</span> IR AL HOST PS4</button>
         <span class="note">El host está integrado en esta misma página.<br>Sin saltar a otra página.</span>
       </div>
     </section>
