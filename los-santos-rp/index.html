@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>Los Santos Online RP — 1.00 Beta</title>
+<style>
+:root{color-scheme:dark}*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#101820;font-family:system-ui,Segoe UI,sans-serif;color:#fff}canvas{display:block}#hud{position:fixed;inset:0;pointer-events:none}.panel{background:#101820dc;border:1px solid #ffffff25;border-radius:12px;padding:10px 13px;backdrop-filter:blur(8px)}#brand{position:absolute;top:12px;left:12px}#brand strong{display:block;letter-spacing:.08em}#brand small{color:#9ec9d7}#stats{position:absolute;top:12px;right:12px;text-align:right;min-width:132px}#speed{font-size:25px;font-weight:800;font-variant-numeric:tabular-nums}#help{position:absolute;left:12px;bottom:12px;max-width:310px;font-size:12px;line-height:1.5;color:#d6e2e8}#notice{position:absolute;top:100px;left:50%;transform:translateX(-50%);font-weight:700;text-align:center;max-width:90vw}button{pointer-events:auto;color:#fff;background:#173c4b;border:1px solid #4c8191;border-radius:10px;padding:9px 12px;font-weight:700;margin-top:7px}#touch{position:fixed;inset:auto 0 14px;display:none;justify-content:space-between;padding:0 18px;pointer-events:none}.cluster{display:flex;gap:8px;align-items:end}.touchbtn{pointer-events:auto;width:58px;height:58px;border-radius:50%;background:#102c39cc;font-size:18px;touch-action:none}.touchbtn.wide{width:72px;border-radius:15px;font-size:12px}@media(max-width:760px){#touch{display:flex}#help{bottom:86px;max-width:240px;font-size:11px}#stats{min-width:100px}.panel{padding:8px 10px}}
+</style>
+</head>
+<body>
+<div id="hud">
+ <div id="brand" class="panel"><strong>LOS SANTOS ONLINE RP</strong><small>VERSIÓN 1.00 · BETA PROTOTIPO</small></div>
+ <div id="stats" class="panel"><div id="speed">0 km/h</div><div id="money">Dinero: $2,500</div><div id="gear">N · MOTOR</div></div>
+ <div id="notice" class="panel">Bienvenido. Explora la ciudad y visita tu garaje.</div>
+ <div id="help" class="panel">WASD / flechas: conducir · Espacio: freno de mano<br>G: guardar en garaje · E: visitar empresa · R: reiniciar carro<br>Prototipo original con figuras temporales. El guardado es local.</div>
+</div>
+<div id="touch">
+ <div class="cluster"><button class="touchbtn" data-key="a">◀</button><button class="touchbtn" data-key="d">▶</button></div>
+ <div class="cluster"><button class="touchbtn wide" data-key="s">FRENO</button><button class="touchbtn wide" data-key="w">GAS</button></div>
+</div>
+<script type="module">
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
+const scene=new THREE.Scene();scene.background=new THREE.Color(0x9bc7df);scene.fog=new THREE.Fog(0x9bc7df,85,250);
+const camera=new THREE.PerspectiveCamera(65,innerWidth/innerHeight,.1,500);
+const renderer=new THREE.WebGLRenderer({antialias:true});renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.setSize(innerWidth,innerHeight);renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;document.body.appendChild(renderer.domElement);
+scene.add(new THREE.HemisphereLight(0xe8f6ff,0x53604b,2));const sun=new THREE.DirectionalLight(0xfff2d4,2.5);sun.position.set(-45,70,25);sun.castShadow=true;scene.add(sun);
+const mat=(c,r=.8)=>new THREE.MeshStandardMaterial({color:c,roughness:r});
+const grass=mat(0x64885a),road=mat(0x30383e),side=mat(0xb7b8ad),line=mat(0xe8e4cb),glass=mat(0x79b5c9,.3),rubber=mat(0x17191b),white=mat(0xe7e7df),dark=mat(0x222a30);
+function box(w,h,d,m,x,y,z,parent=scene){const o=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),m);o.position.set(x,y,z);o.castShadow=true;o.receiveShadow=true;parent.add(o);return o}
+box(500,.5,500,grass,0,-.5,0);
+for(let i=-4;i<=4;i++){let p=i*24;box(10,.12,500,road,p,.02,0);box(500,.12,10,road,0,.025,p);box(1,.02,500,line,p+5,.09,0);box(500,.02,1,line,0,.09,p+5);box(3,.13,500,side,p-6,.04,0);box(500,.13,3,side,0,.04,p-6)}
+// buildings around a walkable city grid
+const colors=[0xd1b99b,0x8b9da5,0xc9c7bc,0xb7a28d,0x7d9298,0xe1d4bd,0x999a92];
+for(let gx=-4;gx<4;gx++)for(let gz=-4;gz<4;gz++){if((gx===0&&gz===0)||(Math.abs(gx)<=1&&Math.abs(gz)<=1))continue;const x=gx*24+(Math.random()-.5)*4,z=gz*24+(Math.random()-.5)*4,w=8+Math.random()*7,d=8+Math.random()*7,h=5+Math.random()*24;const b=box(w,h,d,mat(colors[Math.floor(Math.random()*colors.length)]),x,h/2,z);box(w+.15,.2,d+.15,dark,x,h+.1,z);for(let yy=2;yy<h-1;yy+=2.5)for(let xx=-w/2+1;xx<w/2-0.5;xx+=2)box(.8,1,.06,glass,x+xx,yy,z+d/2+.035)}
+// trees
+const trunk=mat(0x65452e),leaves=mat(0x356b42);for(let i=0;i<65;i++){const x=(Math.random()-.5)*210,z=(Math.random()-.5)*210;if(Math.abs(x%24)<8||Math.abs(z%24)<8)continue;box(.45,2,.45,trunk,x,1,z);const crown=new THREE.Mesh(new THREE.SphereGeometry(1.5,8,7),leaves);crown.position.set(x,3,z);crown.castShadow=true;scene.add(crown)}
+// vehicle with custom fictional branding
+const car=new THREE.Group();scene.add(car);box(2.1,.55,4.2,mat(0xc13c35,.35),0,.72,0,car);box(1.65,.65,1.8,mat(0x9c2827,.35),0,1.25,-.25,car);box(1.5,.45,1.05,glass,0,1.34,-.28,car);box(1.85,.18,1.05,mat(0x25292c),0,.55,-1.35,car);box(.35,.18,.1,mat(0xf8e7bb),-.7,.8,2.12,car);box(.35,.18,.1,mat(0xf8e7bb),.7,.8,2.12,car);box(.4,.16,.1,mat(0xff4a31),-.7,.8,-2.12,car);box(.4,.16,.1,mat(0xff4a31),.7,.8,-2.12,car);
+const wheels=[];for(const x of [-1.08,1.08])for(const z of [-1.35,1.35]){const w=new THREE.Mesh(new THREE.CylinderGeometry(.39,.39,.24,16),rubber);w.rotation.z=Math.PI/2;w.position.set(x,.4,z);w.castShadow=true;car.add(w);wheels.push(w)}
+const garage=box(7,.18,6,mat(0x3a9b77),-12,.12,-12);const garSign=box(4,1,.2,mat(0x123d31),-12,2.1,-15);const gtxt=makeLabel('TU GARAJE');gtxt.position.set(-12,2.15,-14.86);scene.add(gtxt);
+const business=box(7,.18,6,mat(0xc4a23c),12,.12,-12);box(4,1,.2,mat(0x59461c),12,2.1,-15);const btxt=makeLabel('EMPRESA');btxt.position.set(12,2.15,-14.86);scene.add(btxt);
+function makeLabel(t){const c=document.createElement('canvas');c.width=512;c.height=128;const ctx=c.getContext('2d');ctx.fillStyle='#fff';ctx.font='bold 54px system-ui';ctx.textAlign='center';ctx.fillText(t,256,82);const tx=new THREE.CanvasTexture(c);const s=new THREE.Sprite(new THREE.SpriteMaterial({map:tx,transparent:true}));s.scale.set(6,1.5,1);return s}
+let speed=0,steer=0,money=Number(localStorage.lsorpmoney||2500),saved=JSON.parse(localStorage.lsorpcar||'null');if(saved){car.position.set(saved.x,0,saved.z);car.rotation.y=saved.r}else car.position.set(0,0,0);
+const keys={};addEventListener('keydown',e=>{keys[e.key.toLowerCase()]=true;if([' ','arrowup','arrowdown','arrowleft','arrowright'].includes(e.key.toLowerCase()))e.preventDefault();if(e.repeat)return;if(e.key.toLowerCase()==='g')saveGarage();if(e.key.toLowerCase()==='e')visitBusiness();if(e.key.toLowerCase()==='r'){car.position.set(0,0,0);car.rotation.y=0;speed=0;notify('Carro reiniciado. ¡A rodar!')}});
+addEventListener('keyup',e=>keys[e.key.toLowerCase()]=false);
+document.querySelectorAll('[data-key]').forEach(b=>{const k=b.dataset.key;b.addEventListener('pointerdown',e=>{e.preventDefault();keys[k]=true});for(const ev of ['pointerup','pointercancel','pointerleave'])b.addEventListener(ev,()=>keys[k]=false)});
+function notify(t){document.querySelector('#notice').textContent=t;document.querySelector('#notice').style.display='block';clearTimeout(notify.timer);notify.timer=setTimeout(()=>document.querySelector('#notice').style.display='none',3200)}
+function saveGarage(){if(car.position.distanceTo(new THREE.Vector3(-12,0,-12))<10){localStorage.lsorpcar=JSON.stringify({x:car.position.x,z:car.position.z,r:car.rotation.y});localStorage.lsorpmoney=money;notify('Vehículo guardado en tu garaje.');}else notify('Acércate al marcador verde para usar el garaje.')}
+function visitBusiness(){if(car.position.distanceTo(new THREE.Vector3(12,0,-12))<10){money+=250;localStorage.lsorpmoney=money;notify('¡Negocio abierto! Ganaste $250.');}else notify('Acércate al marcador dorado para visitar tu empresa.')}
+let last=performance.now();function loop(now){requestAnimationFrame(loop);const dt=Math.min((now-last)/1000,.04);last=now;const forward=keys.w||keys.arrowup,back=keys.s||keys.arrowdown,left=keys.a||keys.arrowleft,right=keys.d||keys.arrowright,hand=keys[' '];speed+=(forward?15:0)-(back?11:0);speed*=Math.pow(hand?.91:.985,dt*60);speed=Math.max(-8,Math.min(42,speed));if(Math.abs(speed)>.25)car.rotation.y+=(right?-1:0)+(left?1:0)*0;let steerInput=(left?1:0)-(right?1:0);car.rotation.y+=steerInput*dt*Math.min(1,Math.abs(speed)/5)*1.7*Math.sign(speed||1);car.position.x+=Math.sin(car.rotation.y)*speed*dt;car.position.z+=Math.cos(car.rotation.y)*speed*dt;car.position.x=Math.max(-235,Math.min(235,car.position.x));car.position.z=Math.max(-235,Math.min(235,car.position.z));wheels.forEach(w=>w.rotation.x+=speed*dt*1.8);
+const target=new THREE.Vector3(car.position.x-Math.sin(car.rotation.y)*8,car.position.y+5,car.position.z-Math.cos(car.rotation.y)*8);camera.position.lerp(target,1-Math.pow(.001,dt));camera.lookAt(car.position.x,car.position.y+1,car.position.z);
+document.querySelector('#speed').textContent=Math.round(Math.abs(speed)*4)+' km/h';document.querySelector('#money').textContent='Dinero: $'+money.toLocaleString('en-US');document.querySelector('#gear').textContent=(speed>1?'D':speed< -1?'R':'N')+' · '+(Math.abs(speed)>30?'TURBO':'MOTOR');renderer.render(scene,camera)}
+requestAnimationFrame(loop);addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight)});
+notify('Prototipo cargado. Busca el garaje verde y la empresa dorada.');
+</script></body></html>
