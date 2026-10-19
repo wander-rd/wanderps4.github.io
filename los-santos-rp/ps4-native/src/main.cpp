@@ -35,7 +35,7 @@ int main(int argc,char** argv){
     }
     std::vector<TrafficCar> traffic;
     for(int i=0;i<12;++i) traffic.push_back({float((i*173)%W),float((i*137)%H),i%2?0.f:float(70+(i%4)*15),i%2?float(65+(i%3)*12):0.f,trafficColors[i%6]});
-    PlayerCar car; bool running=true; Uint32 last=SDL_GetTicks(); float cash=2500; int upgrades=0;
+    PlayerCar car; bool running=true; Uint32 last=SDL_GetTicks(); float cash=2500; int upgrades=0; bool prevY=false, prevX=false;
     while(running){
         Uint32 now=SDL_GetTicks(); float dt=std::min(.04f,(now-last)/1000.f);last=now;
         SDL_Event e; while(SDL_PollEvent(&e)){if(e.type==SDL_QUIT)running=false;if(e.type==SDL_KEYDOWN&&e.key.keysym.sym==SDLK_ESCAPE)running=false;}
@@ -48,8 +48,11 @@ int main(int argc,char** argv){
             if(std::abs(ax)>6500)steer=ax/32767.f;
             if(SDL_GameControllerGetAxis(pad,SDL_CONTROLLER_AXIS_TRIGGERRIGHT)>9000)accel=1.f;
             if(SDL_GameControllerGetAxis(pad,SDL_CONTROLLER_AXIS_TRIGGERLEFT)>9000)brake=1.f;
-            if(SDL_GameControllerGetButton(pad,SDL_CONTROLLER_BUTTON_Y))car.model=(car.model+1)%6;
-            if(SDL_GameControllerGetButton(pad,SDL_CONTROLLER_BUTTON_X)&&cash>=750){cash-=750;++upgrades;}
+            bool yPressed=SDL_GameControllerGetButton(pad,SDL_CONTROLLER_BUTTON_Y)!=0;
+            bool xPressed=SDL_GameControllerGetButton(pad,SDL_CONTROLLER_BUTTON_X)!=0;
+            if(yPressed&&!prevY)car.model=(car.model+1)%6;
+            if(xPressed&&!prevX&&cash>=750){cash-=750;++upgrades;}
+            prevY=yPressed; prevX=xPressed;
         }
         car.speed+=accel*(150.f+upgrades*20)*dt; car.speed-=brake*210.f*dt;
         if(!accel&&!brake)car.speed*=std::pow(.985f,dt*60);
