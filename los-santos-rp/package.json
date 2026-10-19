@@ -1,0 +1,18 @@
+{
+  "name": "los-santos-online-rp",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Prototipo 3D de mundo abierto Los Santos Online RP",
+  "scripts": {
+    "android:add": "npx cap add android",
+    "android:sync": "npx cap sync android",
+    "android:open": "npx cap open android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^6.2.0",
+    "@capacitor/core": "^6.2.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^6.2.0"
+  }
+}
