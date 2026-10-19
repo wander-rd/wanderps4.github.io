@@ -10,7 +10,7 @@ Prototipo original de mundo urbano 3D en navegador, con una ciudad procedural de
 - HUD de dinero, identidad, estado de empleo, velocidad, zona y objetivo inicial.
 - Minimapa con calles y puntos de interés.
 - Marcadores para centro de empleo, garaje/taller, hospital, comisaría y concesionario.
-- Empleos offline simulados: repartidor, taxista, mecánico y conductor de autobús.
+- Trabajos offline con destinos: conduce hasta un punto de entrega para cobrar la recompensa.
 - Garaje con selección de color, mejora de motor y reparación por dinero del juego.
 - Guardado local del dinero, empleo, posición, color, vehículo seleccionado y vehículos adquiridos mediante localStorage.
 - Controles táctiles básicos para móviles.
@@ -31,7 +31,7 @@ Abre index.html en un navegador moderno con conexión a internet. Three.js se ca
 
 ## Preparar una APK de Android (requiere ordenador)
 
-Se incluye una configuración inicial de Capacitor para empaquetar la versión web como app Android. No es una APK ya compilada: hay que instalar Node.js y Android Studio, ejecutar los comandos de `ANDROID_BUILD.md`, generar la carpeta nativa Android y compilar desde Android Studio. La escena 3D usa Three.js desde internet, así que esta primera APK necesita conexión para descargar esa biblioteca. La compilación aún no se ha ejecutado ni probado en un teléfono.
+Se incluye una configuración inicial de Capacitor para empaquetar la versión web como app Android. No es una APK ya compilada: hay que instalar Node.js y Android Studio, ejecutar los comandos de `ANDROID_BUILD.md`, generar la carpeta nativa Android y compilar desde Android Studio. La escena 3D usa Three.js desde internet, así que esta primera APK necesita conexión para descargar esa biblioteca. Antes de sincronizar, usa `npm run android:sync`; este comando copia la versión actual de `index.html` a `www/index.html` y actualiza el proyecto Android. La compilación aún no se ha ejecutado ni probado en un teléfono.
 
 ## Estado y limitaciones
 Esto sigue siendo un **prototipo**, no un juego AAA ni un multijugador real. Los trabajos se simulan localmente; no hay servidor ni otros jugadores; el tráfico es una simulación sencilla (no una IA avanzada), no hay peatones animados, misiones persistentes complejas ni modelos artísticos finales. Las colisiones y la conducción son aproximadas. El código aún necesita pruebas en navegadores y dispositivos reales.
