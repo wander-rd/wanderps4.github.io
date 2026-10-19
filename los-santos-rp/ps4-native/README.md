@@ -3,8 +3,13 @@
 Este directorio comienza una **ruta nativa para PS4 homebrew** separada de la demo web. No es todavía un juego completo ni un PKG compilado.
 
 ## Fuente actual
-- `src/main.cpp`: base C++/SDL2 con ciudad cenital de prueba, bloques con ventanas, tráfico sencillo, coche seleccionable, movimiento, aceleración, frenado, mando compatible con SDL GameController y HUD visual sin fuentes externas.
+- `src/main.cpp`: base C++/SDL2 con ciudad cenital de prueba, bloques con ventanas, tráfico sencillo, seis variantes visuales de coche, aceleración/frenado, minimapa cuadrado propio, velocímetro abajo a la derecha, contador de dinero/trabajos y una misión de entrega de prueba. El HUD usa una fuente bitmap dibujada por código, sin fuentes externas.
 - La demo web previa sigue en `../index.html`; no se puede empaquetar directamente como aplicación PS4 sin portar/reimplementar su motor y sus recursos.
+
+## Controles actuales de prototipo
+- Teclado: WASD o flechas para conducir; E cerca del destino para completar una entrega.
+- Mando compatible con SDL GameController: stick izquierdo para girar, R2 para acelerar, L2 para frenar/reversa, Y para cambiar variante, X para comprar una mejora por $750 y A cerca del destino para completar una entrega por $500.
+- Estos controles son provisionales y todavía necesitan pruebas en PS4.
 
 ## Ruta de compilación
 1. Preparar un ordenador con el OpenOrbis PS4 Toolchain y sus dependencias.
