@@ -29,11 +29,17 @@ Prototipo original de mundo urbano 3D en navegador, con una ciudad procedural de
 ## Cómo probarlo
 Abre index.html en un navegador moderno con conexión a internet. Three.js se carga desde jsDelivr. Si lo ejecutas mediante GitHub Pages, habilita Pages en la configuración del repositorio y visita la ruta publicada correspondiente.
 
-## Preparar una APK de Android (requiere ordenador)
+## Preparación para PlayStation 4
 
-Se incluye una configuración inicial de Capacitor para empaquetar la versión web como app Android. No es una APK ya compilada: hay que instalar Node.js y Android Studio, ejecutar los comandos de `ANDROID_BUILD.md`, generar la carpeta nativa Android y compilar desde Android Studio. La escena 3D usa Three.js desde internet, así que esta primera APK necesita conexión para descargar esa biblioteca. Antes de sincronizar, usa `npm run android:sync`; este comando copia la versión actual de `index.html` a `www/index.html` y actualiza el proyecto Android. La compilación aún no se ha ejecutado ni probado en un teléfono.
+La ruta objetivo es PS4 homebrew, no Android. En `ps4-native/` se añadió una base C++/SDL2 cenital y una guía para investigar la compilación con OpenOrbis y SDL-PS4. Es un prototipo separado de la demo 3D web: no es todavía un port de esa escena ni un PKG listo para instalar.
+
+La creación de un PKG requiere compilar con un toolchain compatible, preparar el ejecutable y el paquete, y probarlo en el entorno de destino. No se ha compilado ni probado en una PS4 desde este entorno.
+
+Referencias del proyecto de herramientas:
+- OpenOrbis PS4 Toolchain: https://github.com/OpenOrbis/OpenOrbis-PS4-Toolchain
+- SDL-PS4: https://github.com/OpenOrbis/SDL-PS4
 
 ## Estado y limitaciones
 Esto sigue siendo un **prototipo**, no un juego AAA ni un multijugador real. Los trabajos se simulan localmente; no hay servidor ni otros jugadores; el tráfico es una simulación sencilla (no una IA avanzada), no hay peatones animados, misiones persistentes complejas ni modelos artísticos finales. Las colisiones y la conducción son aproximadas. El código aún necesita pruebas en navegadores y dispositivos reales.
 
-**No es un PKG de PS4.** GitHub almacena el código, pero no lo convierte en una aplicación de consola. Para llegar a PS4 habrá que evaluar una ruta compatible, adaptar el renderizado y los controles, compilar con un toolchain adecuado y probar el paquete en el hardware objetivo. No se garantiza compatibilidad hasta realizar esas pruebas.
+**No hay un PKG compilado todavía.** GitHub almacena el código, pero no lo convierte en una aplicación de consola. La carpeta `ps4-native/` contiene el comienzo de una ruta nativa para PS4; falta configurar OpenOrbis y SDL-PS4, compilar, preparar el paquete y probarlo en hardware compatible.
