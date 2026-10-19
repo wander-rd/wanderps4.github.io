@@ -1,6 +1,6 @@
 # Los Santos Online RP — prototipo 3D en desarrollo
 
-Prototipo original de mundo urbano 3D en navegador, con una ciudad procedural de prueba y un coche ficticio conducible. Esta versión amplía la primera demo con interfaz de roleplay, minimapa, puntos de interés, empleos simulados, garaje y guardado local.
+Prototipo original de mundo urbano 3D en navegador, con una ciudad procedural de prueba y un coche ficticio conducible. Esta versión amplía la primera demo con interfaz de roleplay, minimapa, velocímetro de 0–300 km/h, controles de mando R2/L2/L3, puntos de interés, empleos simulados, garaje y guardado local.
 
 ## Lo que incluye esta versión
 - Ciudad 3D generada con avenidas, bloques de edificios, ventanas, parques, árboles y mobiliario urbano.
@@ -14,6 +14,7 @@ Prototipo original de mundo urbano 3D en navegador, con una ciudad procedural de
 - Controles táctiles básicos para móviles.
 
 ## Controles
+- **Mando compatible con Gamepad API:** R2 acelera, L2 frena y entra en reversa, stick izquierdo gira y L3 toca la bocina. El navegador debe reconocer el mando.
 - **W / flecha arriba:** acelerar
 - **S / flecha abajo:** frenar o ir en reversa
 - **A/D / flechas izquierda y derecha:** girar
