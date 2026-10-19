@@ -1,25 +1,27 @@
-# Los Santos Online RP
+# Los Santos RP
 
-Proyecto reiniciado desde cero el 19 de octubre de 2026. El código de la demo anterior no se usa como base. El historial Git permanece como respaldo; el resto del sitio no se modifica.
+Juego original de Roleplay de mundo abierto, con enfoque **offline y para un solo jugador** en la primera versión. El proyecto toma como referencia patrones generales del género RP y los adapta a una experiencia propia, con personajes y recursos originales.
 
-## Qué es hoy
-Un prototipo web mínimo para probar el ciclo de movimiento y cámara. **No es el juego final ni una aplicación nativa de PS4.** La ruta de PS4 requiere validar el toolchain, el renderer y el empaquetado antes de afirmar que se puede instalar.
+## Estado actual
+- Existe una demo web pequeña para probar movimiento y cámara.
+- La demo incluye una ciudad procedural sencilla, un personaje, un vehículo, perspectiva en primera/tercera persona, controles de teclado y compatibilidad básica con gamepad.
+- La sintaxis JavaScript del prototipo se ha comprobado, pero no se ha probado todavía en un navegador real ni en la PS4.
+- No hay un paquete nativo PKG compilado y probado.
+- La ruta nativa de PS4 y la compatibilidad con el firmware objetivo siguen pendientes de verificación.
 
-## Controles del prototipo web
-- WASD / flechas: caminar o conducir
-- E: entrar/salir del coche
-- V: alternar primera y tercera persona
-- Gamepad: stick izquierdo para moverse/girar, gatillo derecho para acelerar, gatillo izquierdo para frenar
+## Controles de la demo web
+- WASD / flechas: caminar o conducir.
+- E: entrar/salir del coche.
+- V: alternar primera y tercera persona.
+- Gamepad: stick izquierdo; gatillo derecho acelera; gatillo izquierdo frena.
 
-## Prioridad de desarrollo
-1. Viabilidad nativa de PS4.
-2. Personaje y vehículo con ambas cámaras.
-3. Mundo y colisiones.
-4. Guardado, economía y trabajos.
-5. Sistemas de Roleplay.
-6. Multijugador.
+## Enfoque offline
+Como no habrá otros jugadores al principio, las actividades y servicios se apoyarán en NPCs, eventos programados y sistemas locales. La economía, los vehículos y el progreso se guardarán localmente. El multijugador no forma parte del alcance actual.
 
-Lee [DESIGN.md](DESIGN.md) para la arquitectura y los criterios de aceptación, y [ROLEPLAY_SYSTEMS.md](ROLEPLAY_SYSTEMS.md) para el diseño original de personajes, economía, trabajos, vehículos y progresión. El prototipo web depende de Three.js desde CDN y requiere conexión a internet para cargar esa librería.
+## Documentación
+- [DESIGN.md](DESIGN.md): arquitectura, fases y criterios de aceptación.
+- [ROLEPLAY_SYSTEMS.md](ROLEPLAY_SYSTEMS.md): personajes, trabajos, economía, vehículos y simulación de NPCs.
+- [ps4-native/README.md](ps4-native/README.md): investigación de viabilidad nativa en PS4.
 
 ## Transparencia
-No hay PKG nativo compilado ni probado en esta versión. La demo web sirve para iterar sobre mecánicas, no demuestra compatibilidad con PS4. Todos los recursos visuales son formas originales generadas por código.
+La demo web es una herramienta de prototipado; no equivale a un juego nativo de PS4. El proyecto usa formas 3D generadas por código y no incluye recursos propietarios de GTA ni de servidores Roleplay de terceros.
