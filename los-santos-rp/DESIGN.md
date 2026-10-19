@@ -1,41 +1,47 @@
-# Los Santos Online RP — diseño técnico inicial
+# Los Santos RP — diseño técnico
 
-## Objetivo
-Crear un juego original de mundo abierto con mecánicas de Roleplay, dirigido a PS4 con jailbreak y herramientas homebrew compatibles. No copiar código, mapas, marcas, personajes, modelos ni otros recursos protegidos de GTA.
+## Visión
+Juego original de mundo abierto de Roleplay, inicialmente **offline, para un solo jugador**. El jugador crea una vida en una ciudad simulada: explora, conduce, trabaja, gana dinero, compra vehículos y progresa sin depender de otros jugadores ni de conexión a un servidor.
 
-## Estado y transparencia
-- El prototipo web sirve únicamente para iterar mecánicas.
-- No hay un paquete nativo PKG compilado o probado.
-- La compatibilidad con firmware 13.52 y la ruta gráfica 3D deben verificarse en un entorno real.
-- El código previo no es base del nuevo prototipo; el historial Git queda como respaldo técnico.
+## Principios
+- Priorizar un bucle jugable pequeño, estable y comprobable.
+- La primera y tercera persona deben funcionar tanto a pie como conduciendo.
+- Usar recursos, nombres, personajes y diseños propios.
+- La demo web no se presenta como aplicación nativa de PS4.
+- No prometer compatibilidad con firmware 13.52 hasta probar un build real.
+- No desarrollar multijugador por ahora.
 
 ## Fases
-1. **Viabilidad PS4:** comprobar toolchain, renderer 3D, bibliotecas, compilación, empaquetado y método de prueba.
-2. **Movimiento:** personaje a pie, vehículo, entrar/salir, cámara primera/tercera persona, mando.
-3. **Mundo:** calles, colisiones, edificios, iluminación, tráfico y navegación.
-4. **Persistencia:** personaje, dinero, vehículos propios, guardado versionado.
-5. **Roleplay civil:** trabajos, objetivos, pagos, tiendas, mecánico, hospital y policía.
-6. **Multijugador:** servidor autoritativo, persistencia, sincronización y validación de acciones.
-7. **QA:** builds reproducibles, pruebas de rendimiento, errores y pruebas reales en PS4.
+1. **Viabilidad nativa:** comprobar toolchain, renderer 3D, entrada, compilación y empaquetado compatibles con la PS4 objetivo.
+2. **Movimiento:** personaje a pie, vehículo, entrar/salir, cámaras primera/tercera persona y mando.
+3. **Mundo:** calles conectadas, colisiones, edificios, iluminación, tráfico y puntos de interés.
+4. **Vida offline:** guardado local versionado, reloj del juego, dinero y estado del personaje.
+5. **Actividades:** una misión de entrega, trabajo de conductor y un taller de reparación.
+6. **Vida ciudadana:** tiendas, garaje, compra/propiedad de vehículos, vivienda e interacciones con NPCs.
+7. **Sistemas ampliados:** progresión de empleos, servicios de la ciudad, eventos y más barrios.
+8. **QA:** builds reproducibles, pruebas de rendimiento y pruebas reales en PS4.
 
-## Arquitectura prevista
-- Separar simulación, representación, entrada, interfaz y persistencia.
-- Máquina de estados explícita: menú, a pie, conduciendo e interfaz.
-- Entrada normalizada para teclado de prototipo y mando de consola.
-- Misiones/economía separadas del HUD.
-- Guardados versionados y migrables.
-- En multijugador, servidor autoritativo: el cliente no decide su dinero ni recompensas.
-- Recursos visuales y nombres originales.
+## Arquitectura
+- Separar simulación, renderizado, entrada, interfaz y persistencia.
+- Estados explícitos: menú, a pie, conduciendo e interfaz.
+- Entrada normalizada: teclado para prototipo y mando como objetivo principal de consola.
+- La lógica de misiones y economía no debe depender de elementos visuales del HUD.
+- Guardados locales con versión de esquema, validación y migraciones.
+- Simulación offline de NPCs: rutinas, necesidades sencillas, tráfico y servicios básicos.
+- Los eventos de NPC no deben exigir conexión ni fingir que hay jugadores reales.
 
 ## Criterios de aceptación del primer vertical slice
-- Movimiento y colisiones coherentes.
-- Entrar/salir del vehículo sin teletransportes inesperados.
-- Primera y tercera persona tanto a pie como conduciendo.
-- Cámara y minimapa siguen al actor correcto.
-- Velocímetro representa la velocidad real.
-- Mando documentado y funcional.
-- Guardado/carga sin duplicación de dinero ni vehículos.
-- Cada build indica claramente si es demo web o nativa probada.
+- Caminar y conducir sin atravesar edificios.
+- Entrar/salir del vehículo de forma coherente.
+- Primera y tercera persona a pie y conduciendo.
+- Cámara, minimapa y velocímetro siguen el actor correcto.
+- El mando se detecta y tiene controles documentados.
+- La demo no pierde el control después de alternar estados.
+- El progreso local se guarda y carga sin duplicar dinero ni vehículos.
+- Cada build identifica claramente si es demo web o nativa probada.
 
-## Fuera de alcance inicialmente
-Multijugador, mundo enorme, interiores detallados, economía compleja y afirmaciones de rendimiento antes de estabilizar el movimiento y la ruta gráfica.
+## Fuera de alcance por ahora
+Multijugador, servidores, economías dependientes de otros jugadores, mapas enormes e interiores detallados. Solo se reconsiderarán cuando la versión individual sea estable.
+
+## Ruta nativa
+OpenOrbis y SDL-PS4 son puntos de investigación, no una garantía de que un motor 3D pueda compilar sin cambios. Hay que validar la ruta gráfica y el empaquetado con pruebas reproducibles antes de afirmar que existe una versión instalable.
