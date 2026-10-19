@@ -19,7 +19,7 @@ Un prototipo web mínimo para probar el ciclo de movimiento y cámara. **No es e
 5. Sistemas de Roleplay.
 6. Multijugador.
 
-Lee [DESIGN.md](DESIGN.md) para la arquitectura, criterios de aceptación y límites del proyecto. El prototipo web depende de Three.js desde CDN y requiere conexión a internet para cargar esa librería.
+Lee [DESIGN.md](DESIGN.md) para la arquitectura y los criterios de aceptación, y [ROLEPLAY_SYSTEMS.md](ROLEPLAY_SYSTEMS.md) para el diseño original de personajes, economía, trabajos, vehículos y progresión. El prototipo web depende de Three.js desde CDN y requiere conexión a internet para cargar esa librería.
 
 ## Transparencia
 No hay PKG nativo compilado ni probado en esta versión. La demo web sirve para iterar sobre mecánicas, no demuestra compatibilidad con PS4. Todos los recursos visuales son formas originales generadas por código.
