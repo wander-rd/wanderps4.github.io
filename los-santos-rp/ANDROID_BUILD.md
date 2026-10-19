@@ -20,7 +20,7 @@ Esta es una guía de compilación; el repositorio no contiene una APK compilada 
    ```
 4. Sincroniza la app web con Android:
    ```bash
-   npx cap sync android
+   npm run android:sync
    ```
 5. Abre Android Studio:
    ```bash
