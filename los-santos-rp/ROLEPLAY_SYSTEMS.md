@@ -1,93 +1,84 @@
-# Investigación de sistemas de Roleplay — Los Santos Online RP
+# Sistemas de Roleplay — Los Santos RP (offline)
 
-Este documento convierte patrones comunes del género RP en un diseño propio. No se copian recursos, nombres, mapas ni código de otros juegos o servidores.
-
-## Qué significa Roleplay en el diseño
-El jugador interpreta a un ciudadano persistente en una ciudad compartida o simulada. Las actividades tienen contexto, reglas y consecuencias; los trabajos y servicios dependen unos de otros; las decisiones forman una historia del personaje.
+Este diseño adapta patrones generales del género Roleplay a una experiencia individual. No copia código, mapas, nombres, modelos ni recursos de Heroi Play, GTA u otros proyectos.
 
 ## Bucle principal
-1. Entrar con un personaje y cargar su estado guardado.
-2. Elegir una actividad: explorar, trabajar, conducir, socializar o gestionar una propiedad.
-3. Completar objetivos y recibir recompensas calculadas por el sistema.
-4. Gastar o ahorrar recursos: combustible/reparaciones, ropa, vehículos, vivienda o servicios.
-5. Guardar progreso y desbloquear nuevas posibilidades.
+1. Cargar el personaje y su progreso local.
+2. Explorar la ciudad y hablar/interactuar con NPCs.
+3. Elegir un trabajo, servicio o actividad.
+4. Completar objetivos visibles y recibir una recompensa calculada por el juego.
+5. Usar el dinero en reparaciones, vehículos, ropa, servicios y propiedades.
+6. Guardar el progreso y desbloquear nuevas oportunidades.
 
-## Sistemas que se construirán
-### 1. Identidad y personaje
-- Identificador interno estable, nombre de rol y apariencia original.
-- Estado: ubicación segura, dinero, empleo, inventario y vehículos propios.
-- Creación y edición con límites claros; guardado versionado.
-- No guardar secretos ni confiar en datos enviados por un cliente en modo multijugador.
+## Personaje y persistencia
+- Identidad interna estable, nombre, apariencia original, empleo y ubicación segura.
+- Guardar dinero, vehículos propios, misiones y progreso.
+- Guardado versionado y validado; no guardar secretos.
+- La carga de una partida debe recuperar un estado coherente aunque la aplicación se cierre inesperadamente.
 
-### 2. Economía
-- Efectivo y cuenta separados cuando exista una interfaz bancaria.
-- Cada transacción registra origen, destino, cantidad y razón.
-- Pagos por misión validados en el sistema de juego; nunca pagar repetidamente por mantener pulsado un botón.
-- Precios equilibrados: ingresos por trabajo frente a reparación, servicios, vehículos y vivienda.
-- Para el primer prototipo: moneda local simulada y una única recompensa de trabajo.
+## Economía offline
+- Dinero en efectivo y cuenta bancaria como sistemas separados cuando exista la interfaz bancaria.
+- Registrar internamente cada transacción con origen, cantidad y motivo.
+- Las recompensas de misiones se conceden una sola vez por objetivo completado.
+- Los ingresos y los gastos deben estar equilibrados: salarios frente a reparaciones, servicios y compras.
+- Como es un juego individual, la economía no depende de otros jugadores. Los precios y la disponibilidad se simulan localmente.
 
-### 3. Trabajos y misiones
-- Centro de empleo para seleccionar trabajos.
-- Una misión activa por personaje al principio.
-- Objetivo visible en mapa/HUD, estado de progreso, validación de llegada y pago único.
-- Tipos iniciales: entrega, conductor de pasajeros y mecánico de servicio.
-- Futuro: niveles, reputación y requisitos, evitando tareas repetitivas sin propósito.
+## Trabajos y misiones
+- Centro de empleo con trabajos disponibles y requisitos.
+- Una misión activa al principio.
+- Marcador en mapa/HUD, pasos claros, comprobación de llegada y recompensa única.
+- Primeras actividades recomendadas: entregas, conductor de pasajeros y asistencia mecánica.
+- Añadir progresión y nuevos contratos solo después de que el primer trabajo sea estable.
 
-### 4. Vehículos
-- Catálogo de modelos ficticios, compra, propiedad y selección.
-- Entrada/salida segura; cámara en primera y tercera persona.
-- Conducción, colisiones, daños, reparación y mejoras en fases separadas.
-- Garaje que guarda vehículos y evita duplicación.
-- En multijugador, el servidor valida propiedad, compras y transacciones.
+## NPCs y ciudad viva
+- NPCs con rutinas sencillas y respuestas contextuales.
+- Tráfico y peatones simulados sin necesidad de conexión.
+- Servicios representados por NPCs o puntos interactivos: empleo, taller, hospital, tienda y concesionario.
+- Eventos locales programados para que la ciudad no se sienta vacía.
+- Las interacciones deben dejar claro que son personajes controlados por el juego, no personas reales.
 
-### 5. Servicios y ciudad
+## Vehículos
+- Catálogo original de vehículos ficticios, compra y propiedad persistente.
+- Entrar/salir, cámara en primera/tercera persona y controles de mando.
+- En fases posteriores: daños, combustible, reparación y mejoras de rendimiento.
+- Garaje que guarda vehículos y evita duplicados.
+- El HUD debe mostrar velocidad real y el minimapa debe seguir al jugador o vehículo activo.
+
+## Servicios y progresión
+- Taller: reparar y mejorar vehículos.
 - Hospital: recuperar estado y servir como punto de reaparición.
-- Mecánico: reparación y mejoras.
-- Policía: sistema de reglas y multas solo cuando el resto del bucle sea estable.
-- Tiendas y vivienda: fases posteriores.
-- Calles, señales, zonas, puntos de interés y tráfico deben tener datos comunes para el mapa y la navegación.
+- Policía y servicios de emergencia: primero como NPCs y sistemas sencillos de ciudad; ampliar después.
+- Tiendas y vivienda: comprar artículos y propiedades con efectos persistentes.
+- Inventario pequeño al principio; cada objeto debe tener una utilidad concreta.
 
-### 6. Inventario y objetos
-- Empezar con inventario pequeño y tipos de objeto definidos.
-- Límites de capacidad, transferencias y consumo validados por el sistema.
-- No implementar objetos que no tengan una función jugable clara.
+## Reglas de diseño
+- No se simulará un multijugador inexistente.
+- Las acciones importantes deben dar feedback claro.
+- Evitar recompensas duplicadas, compras sin fondos o vehículos duplicados.
+- Los sistemas deben ser accesibles con mando y tener una interfaz legible.
+- Todos los recursos y nombres del proyecto serán originales.
 
-### 7. Juego social y reglas
-- Interacciones contextuales, mensajes y emotes en etapas posteriores.
-- Reglas visibles contra acoso, spam, exploits y sabotaje del juego de otros.
-- Herramientas de moderación antes de abrir un servidor público.
-- La primera versión será individual; el multijugador no se simulará como si ya existiera.
-
-### 8. Guardado y servidor
-- Modo individual: archivo/almacenamiento local con versión de esquema y valores validados.
-- Multijugador futuro: servidor autoritativo; el cliente solicita acciones, el servidor comprueba reglas y confirma resultados.
-- Registrar transacciones importantes y manejar reconexión, duplicados y estados incompletos.
-- No exponer credenciales ni secretos en el cliente.
-
-## Orden recomendado de implementación
-1. Movimiento/cámara y conducción.
-2. Colisiones y entrada/salida del vehículo.
+## Orden recomendado
+1. Movimiento y cámaras.
+2. Colisiones y entrar/salir del coche.
 3. Guardado local mínimo.
 4. Una misión de entrega con recompensa única.
-5. Garaje y catálogo con propiedad persistente.
-6. Más trabajos y servicios.
-7. Inventario y propiedades.
-8. Diseño de servidor y multijugador después de estabilizar lo anterior.
+5. Garaje y propiedad de vehículos.
+6. NPCs y tráfico básicos.
+7. Más empleos, servicios, inventario y propiedades.
+8. Pruebas de rendimiento y compatibilidad nativa en PS4.
 
-## Pruebas mínimas para cada sistema
-- Caso normal.
-- Intento de repetir una acción o cobrar dos veces.
-- Falta de dinero o recurso.
-- Guardar, cerrar y cargar.
-- Entrar/salir de una interfaz durante la acción.
-- Límites de mapa y colisiones.
-- En multijugador futuro: datos manipulados por cliente, desconexión y repetición de solicitudes.
+## Pruebas mínimas
+- Completar una misión y comprobar que no paga dos veces.
+- Intentar comprar algo sin dinero suficiente.
+- Guardar, cerrar y cargar la partida.
+- Entrar/salir del vehículo y cambiar la cámara en ambos estados.
+- Probar límites del mapa y colisiones.
+- Desconectar internet y confirmar que el modo offline no depende de red.
 
-## Referencias de investigación técnica
-- FiveM — introducción a scripting y recursos: https://docs.fivem.net/docs/scripting-manual/introduction/creating-your-first-script/
-- FiveM — conceptos de networking: https://docs.fivem.net/docs/scripting-manual/networking/
+## Referencias técnicas de consulta
+- FiveM scripting concepts (referencia general de organización de sistemas): https://docs.fivem.net/docs/scripting-manual/introduction/creating-your-first-script/
 - OpenOrbis PS4 Toolchain: https://github.com/OpenOrbis/OpenOrbis-PS4-Toolchain
 - SDL-PS4: https://github.com/OpenOrbis/SDL-PS4
 
-## Limitación importante de plataforma
-OpenOrbis es una ruta homebrew útil para investigar, pero su documentación incluye funciones gráficas que siguen en desarrollo. No se da por hecho que un motor 3D de escritorio o un prototipo web se pueda compilar sin cambios para PS4. La decisión de renderer depende de una prueba nativa real.
+Estas referencias sirven para estudiar conceptos técnicos. No significan que FiveM pueda ejecutarse en PS4 ni que el prototipo web sea una app nativa.
