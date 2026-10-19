@@ -5,8 +5,9 @@
   "description": "Prototipo 3D de mundo abierto Los Santos Online RP",
   "scripts": {
     "android:add": "npx cap add android",
-    "android:sync": "npx cap sync android",
-    "android:open": "npx cap open android"
+    "android:sync": "npm run prepare:web && npx cap sync android",
+    "android:open": "npx cap open android",
+    "prepare:web": "node scripts/sync-web.mjs"
   },
   "dependencies": {
     "@capacitor/android": "^6.2.0",
