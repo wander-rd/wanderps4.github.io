@@ -3,7 +3,7 @@ import { CapacitorConfig } from '@capacitor/cli';
 const config: CapacitorConfig = {
   appId: 'com.losantosonlinerp.game',
   appName: 'Los Santos Online RP',
-  webDir: '.',
+  webDir: 'www',
   bundledWebRuntime: false
 };
 
