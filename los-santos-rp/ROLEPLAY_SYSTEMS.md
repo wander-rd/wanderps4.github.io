@@ -6,8 +6,8 @@ Este documento describe sistemas originales para un juego de roleplay individual
 
 - **Movimiento y cámaras:** caminar, entrar/salir del coche y alternar primera/tercera persona.
 - **Ciudad básica:** edificios procedurales, puente de carreras, tráfico y peatones simulados.
-- **Interacción con NPCs:** pulsa **F** cerca de un peatón para iniciar un encargo.
-- **Control temporal de NPC:** pulsa **P** o la cruceta **↑** del mando cerca de un peatón para controlarlo; repite el botón para volver al personaje principal. Es un cambio local de control, no una IA conversacional.
+- **Interacción con NPCs:** pulsa **F** cerca de un peatón para iniciar un encargo. Las respuestas cambian según el oficio asignado al personaje (repartidora, mecánico, vecino, estudiante, conductor o comerciante).
+- **Control temporal de NPC:** pulsa **P** o la cruceta **↑** del mando cerca de un peatón para controlarlo; repite el botón para volver al personaje principal. El minimapa y la cámara siguen al personaje controlado. En primera persona se oculta su modelo para evitar ver el cuerpo desde dentro. Es un cambio local de control, no una IA conversacional.
 - **Primer encargo:** lleva un mensaje al puente marcado con la ruta verde del minimapa. Al llegar, se pagan **$1.500** una sola vez por encargo y el saldo se guarda en el almacenamiento local del navegador.
 - **Vehículo de prueba:** mejoras de potencia provisionales, velocímetro en km/h y marcha simulada.
 - **HUD:** minimapa abajo a la izquierda; velocímetro, marcha y potencia abajo a la derecha mientras se conduce.
