@@ -18,6 +18,10 @@ Investigar una ruta de renderizado 3D y controles para una PS4 con homebrew comp
 - No hay PKG compilado o probado.
 - La demo web es solo una prueba de mecánicas y no se convierte automáticamente en una aplicación de PS4.
 
+## Checklist reproducible
+
+Antes de compilar o empaquetar, sigue [`BUILD_CHECKLIST.md`](./BUILD_CHECKLIST.md). Esa lista separa validación del entorno, compilación mínima, empaquetado y prueba real; no supone que SDL2 ni el firmware objetivo ya sean compatibles.
+
 ## Referencias
 - OpenOrbis PS4 Toolchain: https://github.com/OpenOrbis/OpenOrbis-PS4-Toolchain
 - SDL-PS4: https://github.com/OpenOrbis/SDL-PS4
