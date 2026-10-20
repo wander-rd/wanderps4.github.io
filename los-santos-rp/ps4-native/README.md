@@ -13,7 +13,7 @@ Investigar una ruta de renderizado 3D y controles para una PS4 con homebrew comp
 ## Estado
 - El juego se llama **Los Santos RP**.
 - El objetivo actual es offline y de un solo jugador.
-- Se añadió `src/main.cpp`, un pequeño scaffold SDL2 para comprobar inicialización, ventana, eventos y entrada básica. Solo es un punto de partida; no contiene la ciudad ni los sistemas del juego.
+- Se añadió `src/main.cpp`, un prototipo SDL2 cenital de prueba con movimiento, marcador de coche, NPC, puente, encargo de entrega, dinero, reputación y contador de entregas. Usa formas básicas dibujadas en una superficie SDL y título de ventana para mostrar el estado. Es un prototipo 2D de verificación, no el juego 3D final.
 - El scaffold no se ha compilado ni ejecutado en PS4. La disponibilidad de SDL2, el renderer/superficie, el mapeo del mando y las dependencias deben verificarse en el entorno objetivo.
 - No hay PKG compilado o probado.
 - La demo web es solo una prueba de mecánicas y no se convierte automáticamente en una aplicación de PS4.
@@ -44,5 +44,5 @@ La documentación de OpenOrbis enumera herramientas como `create-eboot`, `create
 ## Contabilidad del scaffold
 
 - `src/main.cpp`: prueba de inicialización SDL2, ventana, bucle de eventos y estado visual mínimo.
-- No es el motor 3D definitivo, no contiene assets y no está validado en PS4.
+- No es el motor 3D definitivo, no contiene assets y no está validado en PS4. Los controles y las APIs de superficie/controlador deben verificarse al compilar con la versión concreta de SDL-PS4.
 - Próxima puerta de calidad: compilar y probar este pequeño programa antes de portar mecánicas desde la demo web.
