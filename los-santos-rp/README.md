@@ -18,7 +18,7 @@ Juego original de Roleplay de mundo abierto, con enfoque **offline y para un sol
 ## Objetivos de la beta\n- Coches de alto detalle y personalización profunda; las marcas/modelos exactos requieren licencias o assets autorizados.\n- Velocímetro abajo a la derecha en km/h, ruta verde y puente de carreras siempre identificado en el minimapa.\n- Taller propio desde el inicio, casa, capital inicial, clientes NPC, garaje/colección de vehículos y teléfono offline.\n- Tráfico denso, peatones y policía NPC, con optimización y pruebas de rendimiento para PS4.\n- Potencia extrema de hasta 5.000–10.000 HP en configuraciones especiales de competición, equilibrada por agarre y velocidad máxima.\n\n## Enfoque offline
 Como no habrá otros jugadores al principio, las actividades y servicios se apoyarán en NPCs, eventos programados y sistemas locales. La economía, los vehículos y el progreso se guardarán localmente. El multijugador no forma parte del alcance actual.
 
-## Documentación
+## Calendario orientativo\n- Beta pequeña con sistemas básicos: aproximadamente 3–6 meses de desarrollo constante.\n- Beta más completa con ciudad detallada, tráfico, policía, taller, teléfono, coches/audio y tuning: aproximadamente 6–12 meses o más.\n- No hay fecha garantizada: el desarrollo nativo y las pruebas en PS4 son el mayor factor incierto. Ahora mismo el proyecto sigue siendo un prototipo pequeño, no un juego casi terminado.\n\n## Documentación
 - [DESIGN.md](DESIGN.md): arquitectura, fases y criterios de aceptación.
 - [ROLEPLAY_SYSTEMS.md](ROLEPLAY_SYSTEMS.md): personajes, trabajos, economía, vehículos y simulación de NPCs.
 - [ps4-native/README.md](ps4-native/README.md): investigación de viabilidad nativa en PS4.
