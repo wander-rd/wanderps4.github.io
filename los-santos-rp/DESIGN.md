@@ -3,7 +3,7 @@
 ## Visión
 Juego original de mundo abierto de Roleplay, inicialmente **offline, para un solo jugador**. El jugador crea una vida en una ciudad simulada: explora, conduce, trabaja, gana dinero, compra vehículos y progresa sin depender de otros jugadores ni de conexión a un servidor.
 
-## Principios
+## Recursos, coches y audio\n- Priorizar coches de alta fidelidad visual con recursos creados por el equipo o adquiridos con licencia. Quitar emblemas no concede permiso para copiar el diseño completo de un modelo protegido.\n- Para sonidos de motor, turbo, admisión, escape, transmisión y cambios, usar grabaciones propias o bibliotecas con licencia compatible; conservar la documentación de permisos. Diseñar capas por RPM, carga del acelerador, marcha y distancia.\n- No copiar archivos, modelos, configuraciones internas ni tuneos propietarios de GTA o servidores RP. Estudiar descripciones públicas para extraer ideas generales de sistemas.\n\n## Principios
 - Priorizar un bucle jugable pequeño, estable y comprobable.
 - La primera y tercera persona deben funcionar tanto a pie como conduciendo.
 - Usar recursos, nombres, personajes y diseños propios.
@@ -43,5 +43,5 @@ Juego original de mundo abierto de Roleplay, inicialmente **offline, para un sol
 ## Fuera de alcance por ahora
 Multijugador, servidores, economías dependientes de otros jugadores, mapas enormes e interiores detallados. Solo se reconsiderarán cuando la versión individual sea estable.
 
-## Ruta nativa
+## Estimación orientativa de la beta\nEstas cifras son planificación, no una fecha garantizada ni una promesa de trabajo en segundo plano. Con una persona desarrollando de forma constante y recursos disponibles, una beta de alcance reducido podría requerir aproximadamente 3–6 meses; una beta más cercana a la visión completa (ciudad detallada, tráfico, policía, taller, teléfono, garaje, audio y tuning) podría tomar 6–12 meses o más. La ruta nativa de PS4 puede cambiar mucho la estimación: aún hay que validar renderer, mando, rendimiento, empaquetado y compatibilidad real.\n\nHitos para medir progreso: (1) vertical slice estable; (2) economía/guardado/taller; (3) NPC, tráfico y policía; (4) vehículos, audio y minimapa; (5) pruebas de rendimiento; (6) build nativo de prueba y revisión de instalación.\n\n## Ruta nativa
 OpenOrbis y SDL-PS4 son puntos de investigación, no una garantía de que un motor 3D pueda compilar sin cambios. Hay que validar la ruta gráfica y el empaquetado con pruebas reproducibles antes de afirmar que existe una versión instalable.
